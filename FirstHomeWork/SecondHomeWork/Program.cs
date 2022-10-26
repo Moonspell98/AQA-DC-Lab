@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //Task1();
-Task2();
+//Task2();
+Task3();
 
 static void Task1()
 {
@@ -12,9 +13,17 @@ static void Task1()
 static void Task2()
 {
     Console.WriteLine("Please, enter days count");
-    var inputDays = Convert.ToInt16(Console.ReadLine());
+    var inputDays = int.Parse(Console.ReadLine());
     var years = inputDays / 365;
     var months = (inputDays % 365) / 30;
     var days = (inputDays % 365) % 30;
     Console.WriteLine($"Years: {years}, Months: {months}, Days: {days}");
+}
+
+static void Task3()
+{
+    Console.WriteLine("Please, enter number");
+    var inputNumber = int.Parse(Console.ReadLine());
+    inputNumber = inputNumber + inputNumber * 2;
+    Console.WriteLine(inputNumber);
 }

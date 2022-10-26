@@ -1,7 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //Task1();
 //Task2();
-Task3();
+//Task3();
+Task6();
 
 static void Task1()
 {
@@ -38,4 +39,20 @@ static void Task4()
     ushort stillsmall = 40000;
     bool yesOrNot = true;
     sbyte zero = 0;
+}
+
+static void Task5()
+{
+    short a = short.Parse(Console.ReadLine());
+    ulong b = ulong.Parse(Console.ReadLine());
+    char c = char.Parse(Console.ReadLine());
+    double d = double.Parse(Console.ReadLine());
+    Console.WriteLine($"short: {a}, ulong: {b}, char: {c}, double: {d}");
+}
+
+static void Task6()
+{
+    var x = -5;
+    x *= 7;
+    Console.WriteLine(--x);
 }

@@ -2,7 +2,7 @@
 //Task1();
 //Task2();
 //Task3();
-Task8();
+Task9();
 
 static void Task1()
 {
@@ -80,5 +80,30 @@ static void Task8()
     else
     {
         Console.WriteLine("Not Working");
+    }
+}
+
+static void Task9()
+{
+    Console.WriteLine("Enter first value");
+    var a = int.Parse(Console.ReadLine());
+    Console.WriteLine("Enter second value");
+    var b = int.Parse(Console.ReadLine());
+    Console.WriteLine("Enter operation");
+    var action = Console.ReadLine();
+    switch (action)
+    {
+        case "-":
+            Console.WriteLine(a - b);
+            break;
+        case "+":
+            Console.WriteLine(a + b);
+            break;
+        case "*":
+            Console.WriteLine(a * b);
+            break;
+        case "/":
+            Console.WriteLine(a/b);
+            break;
     }
 }

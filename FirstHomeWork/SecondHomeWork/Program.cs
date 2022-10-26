@@ -2,7 +2,7 @@
 //Task1();
 //Task2();
 //Task3();
-Task7();
+Task8();
 
 static void Task1()
 {
@@ -67,5 +67,18 @@ static void Task7()
     else
     {
         Console.WriteLine("Not even number");
+    }
+}
+
+static void Task8()
+{
+    var a = int.Parse(Console.ReadLine());
+    if (a < 50 && a != 37 && a > 32 || a == 0 || a == 15)
+    {
+        Console.WriteLine("Working");
+    }
+    else
+    {
+        Console.WriteLine("Not Working");
     }
 }

@@ -2,7 +2,7 @@
 //Task1();
 //Task2();
 //Task3();
-Task6();
+Task7();
 
 static void Task1()
 {
@@ -55,4 +55,17 @@ static void Task6()
     var x = -5;
     x *= 7;
     Console.WriteLine(--x);
+}
+
+static void Task7()
+{
+    var x = int.Parse(Console.ReadLine());
+    if (x % 2 == 0)
+    {
+        Console.WriteLine("Even number");
+    }
+    else
+    {
+        Console.WriteLine("Not even number");
+    }
 }

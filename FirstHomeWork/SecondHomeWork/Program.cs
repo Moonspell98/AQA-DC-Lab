@@ -27,3 +27,15 @@ static void Task3()
     inputNumber = inputNumber + inputNumber * 2;
     Console.WriteLine(inputNumber);
 }
+
+static void Task4()
+{
+    sbyte smallSigned = -34;
+    byte smallUnsigned = 4;
+    string textValue = "Hello";
+    char oneSymbol = 'R';
+    double bigValueAfterPoint = 23.093433222;
+    ushort stillsmall = 40000;
+    bool yesOrNot = true;
+    sbyte zero = 0;
+}

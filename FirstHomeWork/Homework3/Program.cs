@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Task6();
+Task7();
 
 static void Task1()
 {
@@ -71,4 +71,12 @@ static void Task6()
 
     var sumOfFirstAndLastElements = numbers[0] + numbers[numbers.Length - 1];
     Console.WriteLine($"Sum of first and last elements of array is: {sumOfFirstAndLastElements}");
+}
+
+static void Task7()
+{
+    int[] numbers = { 3, 5, 2, 18, 56, 44 };
+
+    var sumOfIndexes = Array.IndexOf(numbers, numbers.Min()) + Array.IndexOf(numbers, numbers.Max());
+    Console.WriteLine($"Sum of indexes is {sumOfIndexes}");
 }

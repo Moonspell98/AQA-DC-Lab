@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Task3();
+Task4();
 
 static void Task1()
 {
@@ -35,4 +35,18 @@ static void Task3()
     }
 
     Console.WriteLine($"Multiplication of array is {multiplOfArray}");
+}
+
+static void Task4()
+{
+    var number = 2048;
+    var divider = 2;
+    int timesToDivide = 0;
+
+    do
+    {
+        number /= divider;
+        timesToDivide++;
+    } while (number > 10);
+    Console.WriteLine($"To get number less than 10, need to divide 2048 {timesToDivide} times");
 }

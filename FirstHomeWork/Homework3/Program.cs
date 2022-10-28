@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Task4();
+Task5();
 
 static void Task1()
 {
@@ -48,5 +48,19 @@ static void Task4()
         number /= divider;
         timesToDivide++;
     } while (number > 10);
-    Console.WriteLine($"To get number less than 10, need to divide 2048 {timesToDivide} times");
+    Console.WriteLine(timesToDivide);
+}
+
+static void Task5()
+{
+    string[] strings = { "Privet", "Salut", "Czesc", "Labas", "Hello" };
+    foreach (var str in strings)
+    {
+        if (str == "Hello")
+        {
+            Console.WriteLine("Labas!");
+            break;
+        }
+        Console.WriteLine("Check iteration");
+    }
 }

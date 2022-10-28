@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Task5();
+Task6();
 
 static void Task1()
 {
@@ -63,4 +63,12 @@ static void Task5()
         }
         Console.WriteLine("Check iteration");
     }
+}
+
+static void Task6()
+{
+    int[] numbers = { 3, 5, 9, 18, 42, 44 };
+
+    var sumOfFirstAndLastElements = numbers[0] + numbers[numbers.Length - 1];
+    Console.WriteLine($"Sum of first and last elements of array is: {sumOfFirstAndLastElements}");
 }

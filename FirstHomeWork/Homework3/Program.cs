@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Task9();
+ExtaTaskFromJenya();
 
 static void Task1()
 {
@@ -105,7 +105,22 @@ static void Task9()
             Console.WriteLine($"{i} * {j} = {j * i}");
         }
         Console.WriteLine();
+    }  
+}
+
+static void ExtaTaskFromJenya()
+{
+    int[,] nums2 = { { 0, 1, 2, 5 }, { 3, 4, 5, 5 }, { 6, 7, 8, 5 }, {5, 3, 12, 42 } };
+    var sum = 0;
+    for (int i = 0; i < nums2.GetUpperBound(0) + 1; i++)
+    {
+        for (int j = 0; j < nums2.GetUpperBound(1) + 1; j++)
+        {
+            if (i == j)
+            {
+                sum += nums2[i, j];
+            }
+        }
     }
-   
-   
+    Console.WriteLine(sum);
 }

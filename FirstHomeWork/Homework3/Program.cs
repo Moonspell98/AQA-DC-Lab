@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Task8();
+Task9();
 
 static void Task1()
 {
@@ -94,27 +94,18 @@ static void Task8()
     {
         Console.WriteLine(num);
     }
-    //bool isSorted = false;
+}
 
-
-    //while (!isSorted)
-    //{
-    //    for (int i = 0; i < numbers.Length - 1; i++)
-    //    {
-    //        int storage;
-    //        if (numbers[i] > numbers[i+1])
-    //        {
-    //            storage = numbers[i + 1];
-    //            numbers[i + 1] = numbers[i];
-    //            numbers[i] = storage;
-    //        }
-    //    }
-    //    for (int i = 0; i < numbers.Length - 1; i++)
-    //    {
-    //        if (numbers[i] > numbers[i + 1])
-    //        {
-    //            isSorted = false;
-    //        }
-    //    }
-    //}
+static void Task9()
+{
+    for (int i = 1; i <= 10; i++)
+    {
+        for (int j = 1; j <= 10; j++)
+        {
+            Console.WriteLine($"{i} * {j} = {j * i}");
+        }
+        Console.WriteLine();
+    }
+   
+   
 }

@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Task7();
+Task8();
 
 static void Task1()
 {
@@ -79,4 +79,42 @@ static void Task7()
 
     var sumOfIndexes = Array.IndexOf(numbers, numbers.Min()) + Array.IndexOf(numbers, numbers.Max());
     Console.WriteLine($"Sum of indexes is {sumOfIndexes}");
+}
+
+static void Task8()
+{
+    int[] numbers = { 3, 5, 2, 18, 56, 44 };
+    foreach (var num in numbers)
+    {
+        Console.WriteLine(num);
+    }
+    Array.Sort(numbers);    
+    Console.WriteLine();
+    foreach (var num in numbers)
+    {
+        Console.WriteLine(num);
+    }
+    //bool isSorted = false;
+
+
+    //while (!isSorted)
+    //{
+    //    for (int i = 0; i < numbers.Length - 1; i++)
+    //    {
+    //        int storage;
+    //        if (numbers[i] > numbers[i+1])
+    //        {
+    //            storage = numbers[i + 1];
+    //            numbers[i + 1] = numbers[i];
+    //            numbers[i] = storage;
+    //        }
+    //    }
+    //    for (int i = 0; i < numbers.Length - 1; i++)
+    //    {
+    //        if (numbers[i] > numbers[i + 1])
+    //        {
+    //            isSorted = false;
+    //        }
+    //    }
+    //}
 }

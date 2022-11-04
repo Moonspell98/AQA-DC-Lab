@@ -6,7 +6,7 @@ static void Task1()
     Console.WriteLine("Enter number: ");
     var inputNumber = int.Parse(Console.ReadLine());
     var result = 0;
-    for (int i = 0; i <= inputNumber; i++)
+    for (var i = 0; i <= inputNumber; i++)
     {
         result += i;
     }

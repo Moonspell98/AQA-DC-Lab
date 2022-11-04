@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-ExtaTaskFromJenya();
+Task7();
 
 static void Task1()
 {
@@ -27,7 +27,7 @@ static void Task2()
 static void Task3()
 {
     int[] numbers = new int[5] { 3, 5, 9, 8, 15 };
-    int multiplOfArray = 1;
+    var multiplOfArray = 1;
 
     foreach (var num in numbers)
     {
@@ -41,7 +41,7 @@ static void Task4()
 {
     var number = 2048;
     var divider = 2;
-    int timesToDivide = 0;
+    var timesToDivide = 0;
 
     do
     {
@@ -75,21 +75,45 @@ static void Task6()
 
 static void Task7()
 {
-    int[] numbers = { 3, 5, 2, 18, 56, 44 };
-
-    var sumOfIndexes = Array.IndexOf(numbers, numbers.Min()) + Array.IndexOf(numbers, numbers.Max());
-    Console.WriteLine($"Sum of indexes is {sumOfIndexes}");
+    int[] numbers = { 5, 3, 2, 18, 56, 44 };
+    var minIndex = 0;
+    var minValue = numbers[0];
+    var maxIndex = 0;
+    var maxValue = numbers[0];
+    for (int i = 0; i < numbers.Length; i++)
+    {
+        if (numbers[i] < minValue)
+        {
+            minValue = numbers[i];
+            minIndex = i;
+        }
+        if (numbers[i] > maxValue)
+        {
+            maxValue = numbers[i];
+            maxIndex = i;
+        }
+    }
+    Console.WriteLine(minIndex + " " + maxIndex);
+    //var sumOfIndexes = Array.IndexOf(numbers, numbers.Min()) + Array.IndexOf(numbers, numbers.Max());
 }
 
 static void Task8()
 {
-    int[] numbers = { 3, 5, 2, 18, 56, 44 };
-    foreach (var num in numbers)
+    int[] numbers = { 5, 3, 2, 18, 56, 44 };
+    var minValue = numbers[0];
+    var maxValue = numbers[0];
+    for (int i = 0; i < numbers.Length; i++)
     {
-        Console.WriteLine(num);
+        for (int j = i + 1; j < numbers.Length; j++)
+        {
+            if (numbers[i] > numbers[j])
+            {
+                var storageVar = numbers[i];
+                numbers[i] = numbers[j];
+                numbers[j] = storageVar;
+            }
+        }
     }
-    Array.Sort(numbers);    
-    Console.WriteLine();
     foreach (var num in numbers)
     {
         Console.WriteLine(num);

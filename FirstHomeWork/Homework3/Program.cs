@@ -80,7 +80,7 @@ static void Task7()
     var minValue = numbers[0];
     var maxIndex = 0;
     var maxValue = numbers[0];
-    for (int i = 0; i < numbers.Length; i++)
+    for (var i = 0; i < numbers.Length; i++)
     {
         if (numbers[i] < minValue)
         {
@@ -93,8 +93,7 @@ static void Task7()
             maxIndex = i;
         }
     }
-    Console.WriteLine(minIndex + " " + maxIndex);
-    //var sumOfIndexes = Array.IndexOf(numbers, numbers.Min()) + Array.IndexOf(numbers, numbers.Max());
+    Console.WriteLine(minIndex + maxIndex);
 }
 
 static void Task8()
@@ -102,9 +101,9 @@ static void Task8()
     int[] numbers = { 5, 3, 2, 18, 56, 44 };
     var minValue = numbers[0];
     var maxValue = numbers[0];
-    for (int i = 0; i < numbers.Length; i++)
+    for (var i = 0; i < numbers.Length; i++)
     {
-        for (int j = i + 1; j < numbers.Length; j++)
+        for (var j = i + 1; j < numbers.Length; j++)
         {
             if (numbers[i] > numbers[j])
             {
@@ -122,9 +121,9 @@ static void Task8()
 
 static void Task9()
 {
-    for (int i = 1; i <= 10; i++)
+    for (var i = 1; i <= 10; i++)
     {
-        for (int j = 1; j <= 10; j++)
+        for (var j = 1; j <= 10; j++)
         {
             Console.WriteLine($"{i} * {j} = {j * i}");
         }
@@ -136,9 +135,9 @@ static void ExtaTaskFromJenya()
 {
     int[,] nums2 = { { 0, 1, 2, 5 }, { 3, 4, 5, 5 }, { 6, 7, 8, 5 }, {5, 3, 12, 42 } };
     var sum = 0;
-    for (int i = 0; i < nums2.GetUpperBound(0) + 1; i++)
+    for (var i = 0; i < nums2.GetUpperBound(0) + 1; i++)
     {
-        for (int j = 0; j < nums2.GetUpperBound(1) + 1; j++)
+        for (var j = 0; j < nums2.GetUpperBound(1) + 1; j++)
         {
             if (i == j)
             {

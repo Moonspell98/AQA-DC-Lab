@@ -9,8 +9,8 @@ namespace Homework4.Factories
 {
     internal class Factory
     {
-        private Worker[]? workers;
-        private string name;
+        public Worker[]? Workers { get; private set; }
+        public string Name { get; private set; }
 
         public Factory(string name) : this(null, name)
         {
@@ -18,46 +18,48 @@ namespace Homework4.Factories
 
         public Factory(Worker[] workers, string name)
         {
-            this.workers = workers;
-            this.name = name;
+            Workers = workers;
+            Name = name;
         }
 
         public void ShowFactoryName()
         {
-            Console.WriteLine(name);
+            Console.WriteLine(Name);
         }
         public void ShowNumberOfWorkers()
         {
-            Console.WriteLine(workers.Length);
+            Console.WriteLine(Workers.Length);
         }
         public void AddWorkers(int workersCount)
         {
-            if (workers == null)
+            if (Workers == null)
             {
-                workers = new Worker[workersCount];
+                Workers = new Worker[workersCount];
                 for (int i = 0; i < workersCount; i++)
                 {
                     Console.WriteLine("Enter worker's First Name:");
                     var workerFirstName = Console.ReadLine();
-                    Console.WriteLine("Enter worker's First Name:");
+                    Console.WriteLine("Enter worker's Last Name:");
                     var workerLastName = Console.ReadLine();
                     Console.WriteLine("Enter worker's age");
                     var worgerAge = int.Parse(Console.ReadLine());
                     Console.WriteLine("Enter worker's title");
                     var workerTitle = Console.ReadLine();
-                    workers[i] = new Worker(workerFirstName, workerLastName, workerTitle, worgerAge);
-                 }
+                    Console.WriteLine("Enter worker's salary");
+                    var workerSalary = int.Parse(Console.ReadLine());
+                    Workers[i] = new Worker(workerFirstName, workerLastName, worgerAge, workerTitle, workerSalary);
+                }
             }
             else
             {
                 Console.WriteLine("Workers already assigned.");
             }
         }
-        public Worker GetWorker(int WorkerIndex)
+        public Worker GetWorker(int WorkerNumber)
         {
-            if (workers != null)
+            if (Workers != null)
             {
-                return workers[WorkerIndex];
+                return Workers[WorkerNumber - 1];
             }
             else
             {

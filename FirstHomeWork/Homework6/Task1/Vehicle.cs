@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Homework6
+namespace Homework6.Task1
 {
     public abstract class Vehicle
     {

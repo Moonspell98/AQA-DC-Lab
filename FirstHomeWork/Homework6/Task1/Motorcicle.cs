@@ -4,26 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Homework6
+namespace Homework6.Task1
 {
-    internal class Car : Vehicle
+    internal class Motorcicle : Vehicle
     {
-        public string transmissionType;
+        public bool isChopper;
         double cost;
-        public Car(string modelName, string transmissionType, int mass, double cost)
+        public Motorcicle(string modelName, bool isChopper, int mass, double cost)
         {
             ModelName = modelName;
-            this.transmissionType = transmissionType;
+            this.isChopper = isChopper;
             this.mass = mass;
             Cost = cost;
         }
-        public override double Cost 
+        public override double Cost
         {
             get
             {
-                if (transmissionType == "Automatic")
+                if (isChopper)
                 {
-                    return cost * 1.1;
+                    return cost * 1.05;
                 }
                 else
                 {
@@ -41,7 +41,7 @@ namespace Homework6
             Console.WriteLine($"{ModelName} is doing:");
             for (int i = 0; i < rideLong; i++)
             {
-                Console.WriteLine("Br Br Br");
+                Console.WriteLine("Tr Tr Tr");
             }
         }
     }

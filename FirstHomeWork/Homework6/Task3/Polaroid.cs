@@ -1,29 +1,29 @@
-﻿namespace AutomationCources.Lecture_7.Homework
-{
-    public class Polaroid
-    {
-        private int paperWidth;
-        private int paperHeight;
-        private double numberOfPixelsInCamera;
-        private string? modelName;
-        private decimal price;
+﻿using Homework6.Task3;
 
+namespace AutomationCources.Lecture_7.Homework
+{
+    public class Polaroid : Device, IPrintable, IPhotographic
+    {
         public Polaroid(int paperWidth, int paperHeight, double numberOfPixelsInCamera, string? modelName, decimal price)
         {
-            this.paperWidth = paperWidth;
-            this.paperHeight = paperHeight;
-            this.numberOfPixelsInCamera = numberOfPixelsInCamera;
+            PaperWidth = paperWidth;
+            PaperHeight = paperHeight;
+            NumberOfPixelsInCamera = numberOfPixelsInCamera;
             this.modelName = modelName;
             this.price = price;
         }
 
-        public string Description
+        public override string Description
         {
             get
             {
-                return $"Price: {price}, model:{modelName}, number of pixels in camera: {numberOfPixelsInCamera}";
+                return base.Description + $", number of pixels in camera {NumberOfPixelsInCamera}";
             }
         }
+
+        public int PaperWidth { get; set; }
+        public int PaperHeight { get; set; }
+        public double NumberOfPixelsInCamera { get; set; }
 
         public void TakePhoto()
         {
@@ -35,12 +35,12 @@
             Console.WriteLine("Printing...");
         }
 
-        public void TurnOn()
+        public override void TurnOn()
         {
             Console.WriteLine("Press right side button");
         }
 
-        public void TunrnOff()
+        public override void TurnOff()
         {
             Console.WriteLine("Press Turn Off button");
         }

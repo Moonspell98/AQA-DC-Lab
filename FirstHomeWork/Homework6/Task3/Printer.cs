@@ -1,11 +1,11 @@
-﻿namespace AutomationCources.Lecture_7.Homework
+﻿using Homework6.Task3;
+
+namespace AutomationCources.Lecture_7.Homework
 {
-    public class Printer
+    public class Printer : Device, IPrintable
     {
         private int paperWidth;
         private int paperHeight;
-        private string? modelName;
-        private decimal price;
 
         public Printer(string? modelName, decimal price, int paperWidth, int paperHeight)
         {
@@ -15,25 +15,20 @@
             this.paperHeight = paperHeight;
         }
 
-        public string Description
-        {
-            get
-            {
-                return $"Price: {price}, model:{modelName}";
-            }
-        }
+        public int PaperWidth { get; set; }
+        public int PaperHeight { get; set; }
 
         public void Print()
         {
             Console.WriteLine("Printing...");
         }
 
-        public void TurnOn()
+        public override void TurnOn()
         {
             Console.WriteLine("Press button at the top");
         }
 
-        public void TunrnOff()
+        public override void TurnOff()
         {
             Console.WriteLine("Press Turn Off button");
         }

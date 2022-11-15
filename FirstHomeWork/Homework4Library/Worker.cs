@@ -1,42 +1,52 @@
 ﻿namespace Homework4Library
 {
-    public class Worker
+    public class Worker : Person
     {
-        private string firstName;
-        private string lastName;
-        private string title;
-        private int age;
+        public string? Title { get; private set; }
+        public int? Salary { get; private set; }
 
-        public Worker() : this("Undefined", "Undefined")
+        public Worker() : base()
         {
-
         }
 
-        public Worker(string firstName, string lastName) : this(firstName, lastName, "Undefined", 18)
+        public Worker(string firstName, string lastName, int age ,string title, int salary) : base(firstName, lastName, age)
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
+            Title = title;
+            Salary = salary;
         }
 
-        public Worker(string firstName, string lastName, string title, int age)
+        public void ShowTitle()
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.title = title;
-            this.age = age;
+            Console.WriteLine(Title);
         }
 
-        public void ShowWorkerFullName()
+        public override void ChangeData()
         {
-            Console.WriteLine(firstName + " " + lastName);
-        }
-        public void ShowWorkerAge()
-        {
-            Console.WriteLine(age);
-        }
-        public void ShowWorkerTitle()
-        {
-            Console.WriteLine(title);
+            Console.WriteLine("What type of data you want to change?\n1. Personal\n2. Professional");
+            var decision = int.Parse(Console.ReadLine());
+            if (decision == 1)
+            {
+                base.ChangeData();
+            }
+            else if (decision == 2)
+            {
+                Console.WriteLine($"Which professional data of {FirstName} {LastName} you want to change?\n1. Title\n2. Salary");
+                decision = int.Parse(Console.ReadLine());
+                switch (decision)
+                {
+                    case 1:
+                        Console.WriteLine("Enter new title");
+                        Title = Console.ReadLine();
+                        break;
+                    case 2:
+                        Console.WriteLine("Enter new salary");
+                        Salary = int.Parse(Console.ReadLine());
+                        break;
+                    default:
+                        Console.WriteLine("No valid choice. Exit");
+                        break;
+                }
+            }
         }
     }
 }

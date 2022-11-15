@@ -17,7 +17,7 @@ namespace Homework6.Task1
 
         public virtual void ShowInfo()
         {
-            Console.WriteLine($"{ModelName} mass is: {mass}\n");
+            Console.WriteLine($"{ModelName} mass is: {mass}\n Cost is: {Cost}");
         }
     }
 }

@@ -3,9 +3,11 @@
     public class Worker : Person
     {
         public string? Title { get; private set; }
-        public int? Salary { get; private set; } 
+        public int? Salary { get; private set; }
 
-        public Worker() : base() { }
+        public Worker() : base()
+        {
+        }
 
         public Worker(string firstName, string lastName, int age ,string title, int salary) : base(firstName, lastName, age)
         {
@@ -18,7 +20,7 @@
             Console.WriteLine(Title);
         }
 
-        override public void ChangeData()
+        public override void ChangeData()
         {
             Console.WriteLine("What type of data you want to change?\n1. Personal\n2. Professional");
             var decision = int.Parse(Console.ReadLine());

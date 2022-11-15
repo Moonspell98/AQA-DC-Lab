@@ -26,10 +26,12 @@ namespace Homework4.Factories
         {
             Console.WriteLine(Name);
         }
+        
         public void ShowNumberOfWorkers()
         {
             Console.WriteLine(Workers.Length);
         }
+        
         public void AddWorkers(int workersCount)
         {
             if (Workers == null)
@@ -55,6 +57,7 @@ namespace Homework4.Factories
                 Console.WriteLine("Workers already assigned.");
             }
         }
+        
         public Worker GetWorker(int WorkerNumber)
         {
             if (Workers != null)
@@ -64,6 +67,7 @@ namespace Homework4.Factories
             else
             {
                 Console.WriteLine("There is no assigened workers on this factory");
+                
                 return null;
             }
         }

@@ -1,5 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using Homework7;
+using Homework7.Task1;
+using Homework7.Task2;
 
-Console.WriteLine("Hello, World!");
-LessonClass.ShowMassiveElement();
+//LessonClass.ShowMassiveElement();
+
+ExpirementalClass.ExpirementalMethod();
+

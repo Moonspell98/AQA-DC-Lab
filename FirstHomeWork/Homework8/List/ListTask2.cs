@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Homework8.List
 {
-    public class Task2Class
+    public class ListTask2
     {
         public static void WriteFiveSymbolsStrings(List<string> listOfStrings)
         {
@@ -21,6 +21,7 @@ namespace Homework8.List
 
         public static void WriteStringsAsUserWants(List<string> listOfStrings)
         {
+            Console.WriteLine("Please, enter number of symbols");
             var stringLength = int.Parse(Console.ReadLine());
             var listOfStringsNeededLength = (from str in listOfStrings where str.Length == stringLength select str);
             foreach (var str in listOfStringsNeededLength)

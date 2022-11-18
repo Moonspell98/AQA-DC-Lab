@@ -10,7 +10,7 @@ namespace Homework8.List
     {
         public static int SumOfEvenNumberInList(List<int> listToSum)
         {
-            int sumOfEvenElements = (from element in listToSum where element % 2 == 0 select element).Sum();
+            var sumOfEvenElements = (from element in listToSum where element % 2 == 0 select element).Sum();
 
             return sumOfEvenElements;
         }

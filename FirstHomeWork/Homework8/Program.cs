@@ -23,36 +23,49 @@ using Homework8.List;
 //    Console.WriteLine(employee);
 //}
 
+// Linked List Task 2
+var list1 = new List<int> { 1, 5, 7, 9 };
+LinkedList<int> linkedList1 = new LinkedList<int>(list1);
+
+var list2 = new List<int> { 1, 3, 4, 7, 12 };
+LinkedList<int> linkedList2 = new LinkedList<int>(list2);
+
+LinkedList<int> mergeResult = LinkedListTask2.MergeLinkedLists(linkedList1, linkedList2);
+
+foreach (var item in mergeResult)
+{
+    Console.WriteLine(item);
+} 
+
+
+
 // Dictionary Task 3
+//var cities = new Dictionary<string, City>
+//{
+//    { "Minsk", new City(20, 200) },
+//    { "Warsaw", new City(21, 210) },
+//    { "Wroclaw", new City(10, 120) },
+//    { "Vilnus", new City(12, 100) },
+//    { "Milan", new City(9, 60) }
+//};
 
-var cities = new Dictionary<string, City>
-{
-    { "Minsk", new City(20, 200) },
-    { "Warsaw", new City(21, 210) },
-    { "Wroclaw", new City(10, 120) },
-    { "Vilnus", new City(12, 100) },
-    { "Milan", new City(9, 60) }
-};
+//// a.Sort by square
+//var sortedCities = cities.OrderBy(_ => _.Value.sqaure).ToDictionary(_ => _.Key, _ => _.Value);
+//PrintDictionary(sortedCities);
 
-// Sort by square
-var sortedCities = cities.OrderBy(_ => _.Value.sqaure).ToDictionary(_ => _.Key, _ => _.Value);
-PrintDictionary(sortedCities);
+//// b.Sort by population desc
+//sortedCities = cities.OrderByDescending(_=>_.Value.population).ToDictionary(_ => _.Key, _ => _.Value);
+//PrintDictionary(sortedCities);
 
-// Sort by population desc
+//// c.Total population
+//var totalPopulation = cities.Sum(_=>_.Value.population);
+//Console.WriteLine($"Total Population is {totalPopulation}");
 
-sortedCities = cities.OrderByDescending(_=>_.Value.population).ToDictionary(_ => _.Key, _ => _.Value);
-PrintDictionary(sortedCities);
-
-// Overall population
-
-var overallPopulation = cities.Sum(_=>_.Value.population);
-Console.WriteLine($"Overall Population is {overallPopulation}");
-
-void PrintDictionary(Dictionary<string, City> dictionary)
-{
-    foreach (var item in dictionary)
-    {
-        Console.WriteLine($"Key is: {item.Key}, value {item.Value}");
-    }
-    Console.WriteLine();
-}
+//void PrintDictionary(Dictionary<string, City> dictionary)
+//{
+//    foreach (var item in dictionary)
+//    {
+//        Console.WriteLine($"Key is: {item.Key}, value {item.Value}");
+//    }
+//    Console.WriteLine();
+//}

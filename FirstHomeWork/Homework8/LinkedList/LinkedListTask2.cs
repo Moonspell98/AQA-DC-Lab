@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Homework8.LinkedList
 {
-    internal class LinkedListTask2
+    public class LinkedListTask2
     {
         public static LinkedList<int> MergeLinkedLists(LinkedList<int> list1, LinkedList<int> list2)
         {

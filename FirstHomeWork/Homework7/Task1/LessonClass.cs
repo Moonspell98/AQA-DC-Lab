@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Homework7.Task1
+﻿namespace Homework7.Task1
 {
     internal class LessonClass
     {
@@ -22,9 +16,9 @@ namespace Homework7.Task1
                 int massiveElement = massive[inputtedNumber];
                 Console.WriteLine($"Massive element that has index {inputedValue} has value {massiveElement}");
             }
-            catch (NullReferenceException)
+            catch (ArgumentNullException)
             {
-                Console.WriteLine("I don't how how you did it but you entered \"null\" value in Console.");
+                Console.WriteLine("You entered empty string!");
             }
             catch (FormatException)
             {
@@ -33,6 +27,10 @@ namespace Homework7.Task1
             catch (IndexOutOfRangeException)
             {
                 Console.WriteLine("Entered index is not fits in current array!");
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("Entered value is too big!");
             }
             finally
             {

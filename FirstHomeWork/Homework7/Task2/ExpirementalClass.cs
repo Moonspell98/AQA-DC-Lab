@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-// Note: Better not use this class, stuck in infity loop is possible.
+﻿// Note: Better not use this class, stuck in infinity loop is possible.
 namespace Homework7.Task2
 {
     public class ExpirementalClass
     {
-        public static void ExpirementalMethod()
+        public int ValueFrom1To10
         {
-            while (true)
+            get => ValueFrom1To10;
+            set
             {
-                Console.WriteLine("I warned you...");
-                throw new InfinityLoopException();
+                if (value < 1 || value > 10)
+                {
+                    throw new OutOfBoundsCustomException();
+                }
+                else
+                {
+                    ValueFrom1To10 = value;
+                }
             }
         }
-        
     }
 }

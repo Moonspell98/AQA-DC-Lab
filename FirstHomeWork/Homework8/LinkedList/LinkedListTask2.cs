@@ -6,10 +6,8 @@
         {
             LinkedList<int> result = new LinkedList<int>();
             foreach (var item in list1)
-
             {
                 if (list2.Contains(item))
-
                 {
                     result.AddLast(item);
                 }

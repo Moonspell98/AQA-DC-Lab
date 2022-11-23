@@ -8,13 +8,11 @@
             var userInput = Console.ReadLine();
             var stack = new Stack<char>();
             foreach (var letter in userInput)
-
             {
                 stack.Push(letter);
             }
 
             while(stack.Count > 0)
-
             {
                 Console.WriteLine(stack.Pop());
             }

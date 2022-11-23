@@ -6,10 +6,8 @@
         {
             var nodeInList = listToInsertTo.First;
             for (int i = 0; i < listToInsertTo.Count; i++)
-
             {
                 if (nodeInList.Value == elementValueToInsertAfter)
-
                 {
                     listToInsertTo.AddAfter(nodeInList, elementToInsert);
                 }

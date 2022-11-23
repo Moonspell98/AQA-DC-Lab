@@ -15,12 +15,10 @@
 
                 var userInput = Console.ReadLine();
                 if (userInput == "n")
-
                 {
                     break;
                 }
                 else
-
                 {
                     userQueue.Enqueue(int.Parse(userInput));
                 }
@@ -31,10 +29,8 @@
         {
             Queue<int> queueWithoutMaxElement = new Queue<int>();
             foreach (var item in userQueue)
-            
             {
                 if (item != GetMaxValue(userQueue))
-
                 {
                     queueWithoutMaxElement.Enqueue(item);
                 }

@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Homework9.Task1
+﻿namespace Homework9.Task1
 {
     public class Man : Human
     {
-        public Man() : base("John", "Doe")
+        public Man() : this("John", "Doe")
+        {
+        }
+
+        public Man(string firstName, string lastName) : base(firstName, lastName)
         {
         }
     }

@@ -2,9 +2,8 @@
 
 using Homework9.Task1;
 
-static AllTypesInArrayClass<T> GenerateHumanBeings<T>(AllTypesInArrayClass<T> humany) where T : Human, new()
+static AllTypesInArrayClass<T> GenerateHumanBeings<T>() where T : Human, new()
 {
-    int count;
     if (typeof(T) == typeof(Woman))
     {
         Console.WriteLine("How many womanov you want to add?");
@@ -13,27 +12,31 @@ static AllTypesInArrayClass<T> GenerateHumanBeings<T>(AllTypesInArrayClass<T> hu
     {
         Console.WriteLine("How many manov you want to add?");
     }
-    count = int.Parse(Console.ReadLine());
-    AllTypesInArrayClass<T>.capacity = count;
-
+    AllTypesInArrayClass<T>.capacity = int.Parse(Console.ReadLine());
+    AllTypesInArrayClass<T> humany = new AllTypesInArrayClass<T>();
     for (int i = 0; i < AllTypesInArrayClass<T>.capacity; i++)
     {
-        Console.WriteLine($"Enter {i}st person First Name");
-        var firstName = Console.ReadLine();
-        Console.WriteLine($"Enter {i}st person Last Name");
-        var lastName = Console.ReadLine();
         var human = new T();
-        human.FirstName = firstName;
-        human.LastName = lastName;
-        humany.AddValueToArray(human);
+        Console.WriteLine($"Enter {i + 1}st person First Name");
+        var firstName = Console.ReadLine();
+        Console.WriteLine($"Enter {i + 1}st person Last Name");
+        var lastName = Console.ReadLine();
+        if (!firstName.Equals(string.Empty))
+        {
+            human.FirstName = firstName;
+        }
+        if (!lastName.Equals(string.Empty))
+        {
+            human.LastName = lastName;
+        }
+        humany.AddValueToArray(i, human);
     }
 
     return humany;
 }
 
-AllTypesInArrayClass <Woman> Womeny = new AllTypesInArrayClass<Woman>();
-GenerateHumanBeings<Woman>(Womeny);
-for (int i = 0; i < Womeny.GetArrayLength(); i++)
-{
-    Console.WriteLine($"First Name: {Womeny.GetValueFromArray(i).FirstName}, Last Name: {Womeny.GetValueFromArray(i).FirstName}");
-}
+AllTypesInArrayClass<Woman> Womeny = GenerateHumanBeings<Woman>();
+Womeny.ToString();
+
+AllTypesInArrayClass<Man> Many = GenerateHumanBeings<Man>();
+Many.ToString();

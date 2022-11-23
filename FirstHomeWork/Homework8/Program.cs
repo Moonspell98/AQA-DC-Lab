@@ -22,7 +22,6 @@ using Homework8.QueueAndStack;
 //LinkedListTask1.InsetElements(1, 2, linkedList);
 
 //foreach (var employee in linkedList)
-
 //{
 //    Console.WriteLine(employee);
 //}
@@ -37,7 +36,6 @@ using Homework8.QueueAndStack;
 //LinkedList<int> mergeResult = LinkedListTask2.MergeLinkedLists(linkedList1, linkedList2);
 
 //foreach (var item in mergeResult)
-
 //{
 //    Console.WriteLine(item);
 //}
@@ -46,21 +44,18 @@ using Homework8.QueueAndStack;
 var userQueue = new Queue<int>();
 QueueAndStackTask1.AppendQueue(userQueue);
 foreach (var item in userQueue)
-
 {
     Console.WriteLine(item);
 }
 Console.WriteLine($"Max value is:{QueueAndStackTask1.GetMaxValue(userQueue)}");
 userQueue = QueueAndStackTask1.RemoveMaxElement(userQueue);
 foreach (var item in userQueue)
-
 {
     Console.WriteLine(item);
 }
 Console.WriteLine($"New max value is:{QueueAndStackTask1.GetMaxValue(userQueue)}");
 userQueue = QueueAndStackTask1.RemoveMaxElement(userQueue);
 foreach (var item in userQueue)
-
 {
     Console.WriteLine(item);
 }
@@ -81,13 +76,11 @@ Console.WriteLine($"New max value is:{QueueAndStackTask1.GetMaxValue(userQueue)}
 //List<string> listOfStrings = new List<string>() { "fa", "ja", "aa", "ka", "ba", "pa", "ha", "ma", "ea", "ua" };
 //var resultDictionary = DictionaryTask2.SortAndTransformToDictionary(listOfInts, listOfStrings);
 //foreach (var item in resultDictionary)
-
 //{
 //    Console.WriteLine("Key is " + item.Key + " Value is " + item.Value);
 //}
 
-//foreach(var item in listOfStrings.OrderByDescending(_ => _))
-
+//foreach (var item in listOfStrings.OrderByDescending(_ => _))
 //{
 //    Console.WriteLine(item);
 //}
@@ -118,7 +111,6 @@ Console.WriteLine($"New max value is:{QueueAndStackTask1.GetMaxValue(userQueue)}
 void PrintDictionary(Dictionary<string, City> dictionary)
 {
     foreach (var item in dictionary)
-
     {
         Console.WriteLine($"Key is: {item.Key}, value {item.Value}");
     }

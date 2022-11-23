@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Homework8.QueueAndStack
+﻿namespace Homework8.QueueAndStack
 {
     public class QueueAndStackTask1
     {
@@ -21,14 +15,31 @@ namespace Homework8.QueueAndStack
 
                 var userInput = Console.ReadLine();
                 if (userInput == "n")
+
                 {
                     break;
                 }
                 else
+
                 {
                     userQueue.Enqueue(int.Parse(userInput));
                 }
             }
+        }
+
+        public static Queue<int> RemoveMaxElement(Queue<int> userQueue)
+        {
+            Queue<int> queueWithoutMaxElement = new Queue<int>();
+            foreach (var item in userQueue)
+            
+            {
+                if (item != GetMaxValue(userQueue))
+
+                {
+                    queueWithoutMaxElement.Enqueue(item);
+                }
+            }
+            return queueWithoutMaxElement;
         }
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Homework8.QueueAndStack
+﻿namespace Homework8.QueueAndStack
 {
     public class QueueAndStackTask2
     {
@@ -14,12 +8,15 @@ namespace Homework8.QueueAndStack
             var userInput = Console.ReadLine();
             var stack = new Stack<char>();
             foreach (var letter in userInput)
+
             {
                 stack.Push(letter);
             }
-            for (int i = 0; i <= stack.Count + 1; i++)
+
+            while(stack.Count > 0)
+
             {
-                Console.Write(stack.Pop());
+                Console.WriteLine(stack.Pop());
             }
         }
     }

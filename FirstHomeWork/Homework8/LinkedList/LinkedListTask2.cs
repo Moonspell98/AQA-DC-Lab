@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Homework8.LinkedList
+﻿namespace Homework8.LinkedList
 {
     public class LinkedListTask2
     {
@@ -12,8 +6,10 @@ namespace Homework8.LinkedList
         {
             LinkedList<int> result = new LinkedList<int>();
             foreach (var item in list1)
+
             {
                 if (list2.Contains(item))
+
                 {
                     result.AddLast(item);
                 }

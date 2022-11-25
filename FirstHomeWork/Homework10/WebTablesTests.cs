@@ -15,6 +15,7 @@ namespace Homework10
              _driver.Navigate().GoToUrl("https://demoqa.com/webtables");
         }
 
+
         [Test]
         public void AddEntryToTable()
         {

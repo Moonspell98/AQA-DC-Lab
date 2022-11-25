@@ -4,7 +4,7 @@ using OpenQA.Selenium.Chrome;
 
 namespace Homework10
 {
-    public class Tests
+    public class CheckBoxTests
     {
         IWebDriver _driver;
 

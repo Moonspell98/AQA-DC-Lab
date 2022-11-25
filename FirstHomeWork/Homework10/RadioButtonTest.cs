@@ -3,7 +3,7 @@ using OpenQA.Selenium.Chrome;
 
 namespace Homework10
 {
-    internal class RadioButtonTest
+    public class RadioButtonTest
     {
         IWebDriver _driver;
 

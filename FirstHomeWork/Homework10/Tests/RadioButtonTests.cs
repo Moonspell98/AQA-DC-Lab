@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace Homework10
+namespace Homework10.Tests
 {
     public class RadioButtonTest
     {
@@ -11,6 +11,7 @@ namespace Homework10
         public void OneTimeSetUp()
         {
             _driver = new ChromeDriver();
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             _driver.Manage().Window.Maximize();
             _driver.Navigate().GoToUrl("https://demoqa.com/radio-button");
         }

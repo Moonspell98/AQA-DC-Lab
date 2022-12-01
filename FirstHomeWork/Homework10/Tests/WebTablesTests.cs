@@ -10,12 +10,13 @@ namespace Homework10
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-             _driver = new ChromeDriver();
-             _driver.Manage().Window.Maximize();
-             _driver.Navigate().GoToUrl("https://demoqa.com/webtables");
+            _driver = new ChromeDriver();
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            _driver.Manage().Window.Maximize();
+            _driver.Navigate().GoToUrl("https://demoqa.com/webtables");
         }
 
-
+        // Add entry to the grid and verify if it appeared in grid
         [Test]
         public void AddEntryToTable()
         {
@@ -28,7 +29,6 @@ namespace Homework10
 
             var table = _driver.FindElement(By.ClassName("rt-table"));
             var addButton = _driver.FindElement(By.Id("addNewRecordButton"));
-            var tableHeaderCells = table.FindElements(By.XPath("//*[@role = 'columnheader']"));
 
             addButton.Click();
             var firstNameTextBox = _driver.FindElement(By.Id("firstName"));
@@ -47,6 +47,22 @@ namespace Homework10
             departmentTextBox.SendKeys(department);
 
             sumbitButton.Submit();
+
+            var notEmptyRows = table.FindElements(By.XPath("//*[@class='rt-tbody']//div[@role = 'row'][not(contains(@class, 'padRow'))]"));
+            var addedEntryValues = notEmptyRows.Last().FindElements(By.ClassName("rt-td"));
+            Assert.Multiple(() =>
+            {
+                Assert.AreEqual(fname, addedEntryValues[0].Text);
+                Assert.AreEqual(lname, addedEntryValues[1].Text);
+                Assert.AreEqual(age.ToString(), addedEntryValues[2].Text);
+                Assert.AreEqual(email, addedEntryValues[3].Text);
+                Assert.AreEqual(salary.ToString(), addedEntryValues[4].Text);
+                Assert.AreEqual(department, addedEntryValues[5].Text);
+            });
+            foreach (var item in addedEntryValues)
+            {
+                Console.WriteLine(item.Text);
+            }
         }
 
         [OneTimeTearDown]

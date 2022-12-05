@@ -1,10 +1,11 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using NUnit.Framework;
 
-namespace Homework10
+namespace Homework10.Tests
 {
-    public class DynamicPropertiesTest
+    public class DynamicPropertiesTests
     {
         IWebDriver _driver;
 

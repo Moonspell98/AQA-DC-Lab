@@ -1,13 +1,16 @@
-﻿namespace Homework10.Tools
+﻿using System.Text.RegularExpressions;
+
+namespace Homework10.Tools
 {
     public class TextNormalizer
     {
         public static string Normalize(string stringToNormalize)
         {
             var normalizedString = stringToNormalize.ToLower();
-            normalizedString = normalizedString.Trim().Replace(" ", "");
-            normalizedString = normalizedString.Contains(".") ? normalizedString.Remove(normalizedString.IndexOf(".")) : normalizedString;
-            
+            var pattern = @"\s|\W(\w*)";
+            Regex regex = new Regex(pattern);
+            normalizedString = regex.Replace(normalizedString, "");
+
             return normalizedString;
         }
     }

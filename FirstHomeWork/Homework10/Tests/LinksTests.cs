@@ -1,13 +1,13 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
+using NUnit.Framework;
 
 namespace Homework10.Tests
 {
     public class LinksTests
     {
         IWebDriver _driver;
-        Actions _driverActions;
 
         [OneTimeSetUp]
         public void OneTimeSetUp()
@@ -16,7 +16,6 @@ namespace Homework10.Tests
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             _driver.Manage().Window.Maximize();
             _driver.Navigate().GoToUrl("https://demoqa.com/links");
-            _driverActions = new Actions(_driver);
         }
 
         [Test]

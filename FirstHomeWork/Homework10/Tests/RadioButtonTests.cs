@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using NUnit.Framework;
 
 namespace Homework10.Tests
 {
@@ -23,12 +24,9 @@ namespace Homework10.Tests
             var yesRadio = _driver.FindElement(By.Id("yesRadio"));
             var impressedRadio = _driver.FindElement(By.Id("impressiveRadio"));
             var noRadio = _driver.FindElement(By.Id("noRadio"));
-            Assert.Multiple(() =>
-            {
-                Assert.IsFalse(yesRadio.GetDomProperty("checked").Equals(true));
-                Assert.IsFalse(impressedRadio.GetDomProperty("checked").Equals(true));
-                Assert.IsFalse(noRadio.GetDomProperty("checked").Equals(true));
-            });
+            Assert.IsFalse(yesRadio.GetDomProperty("checked").Equals("true"));
+            Assert.IsFalse(impressedRadio.GetDomProperty("checked").Equals("true"));
+            Assert.IsFalse(noRadio.GetDomProperty("checked").Equals("true"));
 
         }
 

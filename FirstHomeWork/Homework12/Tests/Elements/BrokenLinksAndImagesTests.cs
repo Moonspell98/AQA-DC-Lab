@@ -2,7 +2,6 @@
 using Homework12.Pages.Elements;
 using NUnit.Framework;
 
-
 namespace Homework12.Tests.Elements
 {
     public class BrokenLinksAndImagesTests : BaseTest

@@ -93,6 +93,5 @@ namespace Homework12.Common.WebElements
         public void ScrollIntoView() => WebDriverFactory.JavaScriptExecutor.ExecuteScript("arguments[0].scrollIntoView()", WebElement);
 
         public string GetValueOfClassAtrribute() => GetAttribute("class");
-
     }
 }

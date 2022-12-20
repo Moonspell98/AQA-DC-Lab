@@ -1,5 +1,4 @@
-﻿
-using Homework12.Drivers;
+﻿using Homework12.Drivers;
 using Homework12.Pages.Elements;
 using Homework12.Pages.Modals;
 using NUnit.Framework;
@@ -24,10 +23,8 @@ namespace Homework12.Tests.Elements
             var salary = "1000";
             var department = "Security";
 
-            WebTablesPage webTablesPage = new WebTablesPage();
-
-            RegistrationFormModal registrationFormModal = webTablesPage.AddEntry();
-
+            var webTablesPage = new WebTablesPage();
+            var registrationFormModal = webTablesPage.AddEntry();
             registrationFormModal.EnterFirstName(fname);
             registrationFormModal.EnterLastName(lname);
             registrationFormModal.EnterEmail(email);
@@ -35,7 +32,6 @@ namespace Homework12.Tests.Elements
             registrationFormModal.EnterSalary(salary);
             registrationFormModal.EnterDepartment(department);
             registrationFormModal.SubmitModal();
-
             Assert.AreEqual(fname, webTablesPage.GetLastRowCellValue("First Name"));
             Assert.AreEqual(lname, webTablesPage.GetLastRowCellValue("Last Name"));
             Assert.AreEqual(email, webTablesPage.GetLastRowCellValue("Email"));

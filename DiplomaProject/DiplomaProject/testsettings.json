@@ -1,0 +1,12 @@
+{
+  "Common": {
+    "Browser": "Chrome",
+    "OrangeHrmUrls": {
+      "LogInPage": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+    }
+  },
+  "TestData": {
+    "UserName": "Admin",
+    "Password": "admin123"
+  }
+}

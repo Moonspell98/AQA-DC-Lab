@@ -1,7 +1,6 @@
 ﻿using Homework12.Common.WebElements;
 using OpenQA.Selenium;
 
-
 namespace Homework12.Pages
 {
     public class BaseModal

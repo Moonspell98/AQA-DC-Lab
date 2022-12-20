@@ -16,12 +16,11 @@ namespace Homework12.Tests.Elements
         [Test]
         public void GeneralCheckBoxTest()
         {
-            CheckBoxPage checkBoxPage = new CheckBoxPage();
-
+            var checkBoxPage = new CheckBoxPage();
             checkBoxPage.ExpandAll();
             Assert.AreEqual(6, checkBoxPage.ExpandedChevronsCount());
 
-            checkBoxPage.ClickOnGeneralCheckBox();
+            checkBoxPage.CheckGeneralCheckBox();
             Assert.AreEqual(checkBoxPage.GetAllElementsTitles().Count(), checkBoxPage.GetAllCheckedElementsTitles().Count());
 
             foreach (var elementTitle in checkBoxPage.GetAllElementsTitles())

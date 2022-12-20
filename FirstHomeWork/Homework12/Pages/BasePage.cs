@@ -5,7 +5,7 @@ namespace Homework12.PageObjects
 {
     public class BasePage
     {
-        IWebElement PageTitleElement => new MyWebElement(By.XPath("//*[@class='main-header']"));
+        private IWebElement PageTitleElement => new MyWebElement(By.XPath("//*[@class='main-header']"));
 
         public void ExpandCategory(string categoryName)
         {

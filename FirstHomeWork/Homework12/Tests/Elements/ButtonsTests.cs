@@ -15,8 +15,7 @@ namespace Homework12.Tests.Elements
         [Test]
         public void DoubleClickTest()
         {
-            ButtonsPage buttonsPage = new ButtonsPage();
-
+            var buttonsPage = new ButtonsPage();
             buttonsPage.DoubleClickOnDoubleClickButton();
             Assert.AreEqual("You have done a double click", buttonsPage.GetDoubleClickMessage());
         }
@@ -24,8 +23,7 @@ namespace Homework12.Tests.Elements
         [Test]
         public void RightClickTest()
         {
-            ButtonsPage buttonsPage = new ButtonsPage();
-
+            var buttonsPage = new ButtonsPage();
             buttonsPage.RightClickOnRightClickButton();
             Assert.AreEqual("You have done a right click", buttonsPage.GetRightClickMessage());
         }
@@ -33,8 +31,7 @@ namespace Homework12.Tests.Elements
         [Test]
         public void ClickTest()
         {
-            ButtonsPage buttonsPage = new ButtonsPage();
-
+            var buttonsPage = new ButtonsPage();
             buttonsPage.ClickOnClickButton();
             Assert.AreEqual("You have done a dynamic click", buttonsPage.GetClickResultMessage());
         }

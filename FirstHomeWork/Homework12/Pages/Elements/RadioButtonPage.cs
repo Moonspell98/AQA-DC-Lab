@@ -6,31 +6,30 @@ namespace Homework12.Pages.Elements
 {
     public class RadioButtonPage : BasePage
     {
-        private static string _yesRadioBoxLocator = "//*[@id = 'yesRadio']";
-        private static string _impressiveRadioBoxLocator = "//*[@id = 'impressiveRadio']";
-        private static string _noRadioBoxLocator = "//*[@id = 'noRadio']";
+        //private static string _yesRadioBoxLocator = "//*[@id = 'yesRadio']";
+        //private static string _impressiveRadioBoxLocator = "//*[@id = 'impressiveRadio']";
+        //private static string _noRadioBoxLocator = "//*[@id = 'noRadio']";
 
-        private MyWebElement _yesRadioBox = new MyWebElement(By.XPath(_yesRadioBoxLocator));
-        private MyWebElement _impressiveRadioBox = new MyWebElement(By.XPath(_impressiveRadioBoxLocator));
-        private MyWebElement _noRadioBox = new MyWebElement(By.XPath(_noRadioBoxLocator));
-        private MyWebElement _yesRadioButton = new MyWebElement(By.XPath($"{_yesRadioBoxLocator}/following-sibling::label"));
-        private MyWebElement _impressiveRadioButton = new MyWebElement(By.XPath($"{_impressiveRadioBoxLocator}/following-sibling::label"));
-        private MyWebElement _noRadioButton = new MyWebElement(By.XPath($"{_noRadioBoxLocator}/following-sibling::label"));
+        //private MyWebElement _yesRadioBox = new MyWebElement(By.XPath(_yesRadioBoxLocator));
+        //private MyWebElement _impressiveRadioBox = new MyWebElement(By.XPath(_impressiveRadioBoxLocator));
+        //private MyWebElement _noRadioBox = new MyWebElement(By.XPath(_noRadioBoxLocator));
+        private MyRadioButton _yesRadioButton = new MyRadioButton(By.XPath("//*[@id = 'yesRadio']"));
+        private MyRadioButton _impressiveRadioButton = new MyRadioButton(By.XPath("//*[@id = 'impressiveRadio']"));
+        private MyRadioButton _noRadioButton = new MyRadioButton(By.XPath("//*[@id = 'noRadio']"));
         private MyWebElement _resultTextSection = new MyWebElement(By.XPath("//*[@class='text-success']"));
 
-        public string GetYesCheckedProperty() => _yesRadioBox.GetDomProperty("checked");
+        public bool IsYesRadioChecked() => _yesRadioButton.IsChecked;
 
-        public string GetNoCheckedProperty() => _noRadioBox.GetDomProperty("checked");
+        public bool IsNoRadioChecked() => _noRadioButton.IsChecked;
 
-        public string GetImpressiveCheckedProperty() => _impressiveRadioBox.GetDomProperty("checked");
+        public bool IsImpressiveRadioChecked() => _impressiveRadioButton.IsChecked;
 
-        public void SelectYes() => _yesRadioButton.Click();
+        public void SelectYes() => _yesRadioButton.Check();
 
-        public void SelectNo() => _noRadioButton.Click();
+        public void SelectNo() => _noRadioButton.Check();
 
-        public void SelectImpressive() => _impressiveRadioButton.Click();
+        public void SelectImpressive() => _impressiveRadioButton.Check();
 
         public string GetResultText() => _resultTextSection.Text;
-
     }
 }

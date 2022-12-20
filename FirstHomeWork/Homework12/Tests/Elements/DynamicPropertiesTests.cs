@@ -16,7 +16,6 @@ namespace Homework12.Tests.Elements
         public void ButtonEnabledTest()
         {
             var dynamicPropertiesPage = new DynamicPropertiesPage();
-
             Assert.IsTrue(dynamicPropertiesPage.IsButtonEnabled());
         }
     }

@@ -1,5 +1,4 @@
-﻿
-using Homework12.Common.WebElements;
+﻿using Homework12.Common.WebElements;
 using Homework12.PageObjects;
 using OpenQA.Selenium;
 

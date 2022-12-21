@@ -14,7 +14,6 @@ namespace Homework12
         public static string BrokenLinkAndImagesPageUrl { get; set; }
         public static string DynamicPropertiesPageUrl { get; set; }
 
-
         public static IConfiguration TestConfiguration { get; } = new ConfigurationBuilder().AddJsonFile("testsettings.json").Build();
 
         static TestSettings()

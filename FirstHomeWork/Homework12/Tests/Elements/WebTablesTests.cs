@@ -1,6 +1,5 @@
 ﻿using Homework12.Drivers;
 using Homework12.Pages.Elements;
-using Homework12.Pages.Modals;
 using NUnit.Framework;
 
 namespace Homework12.Tests.Elements

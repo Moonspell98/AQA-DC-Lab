@@ -6,13 +6,6 @@ namespace Homework12.Pages.Elements
 {
     public class RadioButtonPage : BasePage
     {
-        //private static string _yesRadioBoxLocator = "//*[@id = 'yesRadio']";
-        //private static string _impressiveRadioBoxLocator = "//*[@id = 'impressiveRadio']";
-        //private static string _noRadioBoxLocator = "//*[@id = 'noRadio']";
-
-        //private MyWebElement _yesRadioBox = new MyWebElement(By.XPath(_yesRadioBoxLocator));
-        //private MyWebElement _impressiveRadioBox = new MyWebElement(By.XPath(_impressiveRadioBoxLocator));
-        //private MyWebElement _noRadioBox = new MyWebElement(By.XPath(_noRadioBoxLocator));
         private MyRadioButton _yesRadioButton = new MyRadioButton(By.XPath("//*[@id = 'yesRadio']"));
         private MyRadioButton _impressiveRadioButton = new MyRadioButton(By.XPath("//*[@id = 'impressiveRadio']"));
         private MyRadioButton _noRadioButton = new MyRadioButton(By.XPath("//*[@id = 'noRadio']"));

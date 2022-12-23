@@ -2,7 +2,6 @@
 using DiplomaProject.Common.Extensions;
 using OpenQA.Selenium;
 
-
 namespace DiplomaProject.Common.WebElements
 {
     public class ExistingWebElement : MyWebElement

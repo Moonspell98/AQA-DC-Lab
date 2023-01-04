@@ -6,9 +6,9 @@ namespace DiplomaProject.PageObjects.OrangeHRM.Elements
 {
     public class OrangeLoginPage
     {
-        private ExistingWebElement _userNameTexBox => new ExistingWebElement(By.XPath("//input[@name='username']"));
-        private ExistingWebElement _passwordTextBox => new ExistingWebElement(By.XPath("//input[@name='password']"));
-        private ExistingWebElement _loginButton => new ExistingWebElement(By.XPath("//button[contains(@class, 'login-button')]"));
+        private MyWebElement _userNameTexBox => new MyWebElement(By.XPath("//input[@name='username']"));
+        private MyWebElement _passwordTextBox => new MyWebElement(By.XPath("//input[@name='password']"));
+        private MyWebElement _loginButton => new MyWebElement(By.XPath("//button[contains(@class, 'login-button')]"));
 
         public void EnterUserName(string userName) => _userNameTexBox.SendKeys(userName);
 
@@ -16,7 +16,7 @@ namespace DiplomaProject.PageObjects.OrangeHRM.Elements
 
         public void PressOnLoginButton() => _loginButton.Click();
 
-        public void LogIn()
+        public void LogInAsAdmin()
         {
             EnterUserName(TestSettings.UserName);
             EnterPassword(TestSettings.Password);

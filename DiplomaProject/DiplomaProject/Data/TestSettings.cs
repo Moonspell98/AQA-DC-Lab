@@ -7,6 +7,8 @@ namespace DiplomaProject.Data
     {
         public static Browsers Browser { get; set; }
         public static string OrangeHrmLogInPageUrl { get; set; }
+        public static string EmployeeListPageUrl { get; set; }
+        public static string AddEmployeePageUrl { get; set; }
         public static string UserName { get; set; }
         public static string Password { get; set; }
 
@@ -16,7 +18,10 @@ namespace DiplomaProject.Data
         {
             Enum.TryParse(TestConfiguration["Common:Browser"], out Browsers browser);
             Browser = browser;
+
             OrangeHrmLogInPageUrl = TestConfiguration["Common:OrangeHrmUrls:LogInPage"];
+            EmployeeListPageUrl = TestConfiguration["Common:OrangeHrmUrls:EmployeeListPage"];
+            AddEmployeePageUrl = TestConfiguration["Common:OrangeHrmUrls:AddEmployeePageUrl"];
 
             UserName = TestConfiguration["TestData:UserName"];
             Password = TestConfiguration["TestData:Password"];

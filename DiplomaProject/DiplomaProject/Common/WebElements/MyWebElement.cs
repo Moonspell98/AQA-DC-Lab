@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Drawing;
 using DiplomaProject.Common.Drivers;
+using DiplomaProject.Common.Extensions;
 using OpenQA.Selenium;
 
 namespace DiplomaProject.Common.WebElements
@@ -9,7 +10,9 @@ namespace DiplomaProject.Common.WebElements
     {
         protected By By { get; set; }
 
-        protected IWebElement WebElement => WebDriverFactory.Driver.FindElement(By);
+        protected IWebElement WebElement => WebDriverFactory.Driver.GetWebElementWhenExist(By);
+
+        protected static IWebDriver Driver => WebDriverFactory.Driver;
 
         public string TagName => WebElement.TagName;
 
@@ -28,7 +31,7 @@ namespace DiplomaProject.Common.WebElements
         public MyWebElement(By by)
         {
             By = by;
-        }  
+        }
 
         public void Click()
         {
@@ -44,7 +47,35 @@ namespace DiplomaProject.Common.WebElements
         }
         public void Clear() => WebElement.Clear();
 
-        public IWebElement FindElement(By by) => WebElement.FindElement(by);
+        public void ClearViaJs() => WebDriverFactory.JavaScriptExecutor.ExecuteScript("arguments[0].value = '';", WebElement);
+
+        public IWebElement FindElement(By by) => WebDriverFactory.Driver.GetWebElementWhenExist(by);
+
+        public bool IsDisplayed(int timeout = 3)
+        {
+            try
+            {
+                WaitForElementIsDisplayed(timeout);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool IsEnabled(int timeout = 3)
+        {
+            try
+            {
+                WaitForElementIsEnabled(timeout);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         public ReadOnlyCollection<IWebElement> FindElements(By by) => WebElement.FindElements(by);
 
@@ -63,5 +94,11 @@ namespace DiplomaProject.Common.WebElements
         public void Submit() => WebElement.Submit();
 
         public void ScrollIntoView() => WebDriverFactory.JavaScriptExecutor.ExecuteScript("arguments[0].scrollIntoView()", WebElement);
+
+        public void WaitForElementIsDisplayed(int timeout) => Driver
+            .GetWebDriverWait(timeout).Until(drv => WebElement.Displayed);
+
+        public void WaitForElementIsEnabled(int timeout) => Driver
+            .GetWebDriverWait(timeout).Until(drv => WebElement.Enabled);
     }
 }

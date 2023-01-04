@@ -2,7 +2,9 @@
   "Common": {
     "Browser": "Chrome",
     "OrangeHrmUrls": {
-      "LogInPage": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+      "LogInPage": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+      "EmployeeListPage": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList",
+      "AddEmployeePage": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmployee"
     }
   },
   "TestData": {

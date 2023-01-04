@@ -1,5 +1,7 @@
 ﻿using DiplomaProject.Common.Drivers;
 using DiplomaProject.Data;
+using DiplomaProject.PageObjects.OrangeHRM.Elements;
+using DiplomaProject.PageObjects.OrangeHRM.Elements.Admin;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
@@ -23,7 +25,17 @@ namespace DiplomaProject.Tests
         [Test]
         public void Test()
         {
-            WebDriverFactory.Driver.Navigate().GoToUrl(TestSettings.ButtonsPageUrl);
+            WebDriverFactory.Driver.Navigate().GoToUrl(TestSettings.OrangeHrmLogInPageUrl);
+            var loginPage = new OrangeLoginPage();
+            loginPage.LogInAsAdmin();
+            var adminPage = new SystemUsersPage();
+            adminPage.NavigationItem("Admin").Click();
+            adminPage.AddUser();
+            var addUserPage = new AddUserPage();
+            addUserPage.SelectUserRole("Admin");
+            addUserPage.SelectEmployeeName("Rock", "Rock  Python");
+            addUserPage.SelectStatus("Enabled");
+            Thread.Sleep(1000);
         }
 
         [OneTimeTearDown]

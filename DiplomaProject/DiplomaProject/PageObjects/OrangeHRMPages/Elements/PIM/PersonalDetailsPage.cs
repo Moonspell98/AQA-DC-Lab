@@ -21,33 +21,28 @@ namespace DiplomaProject.PageObjects.OrangeHRM.Elements.PIM
 
         public void EditFirstName(string firstName)
         {
-            if (_firstNameTextBox.Enabled)
-            {
-                _firstNameTextBox.Clear();
-                _firstNameTextBox.SendKeys(firstName);
-            }
+            _firstNameTextBox.Click();
+            _firstNameTextBox.ClearViaJs();
+            _firstNameTextBox.SendKeys(firstName);
         }
 
         public void EditMiddleName(string middleName)
         {
-            _middleNameTextBox.ClearViaJs();
-            _middleNameTextBox.SendKeys("");
+            _middleNameTextBox.Click();
             _middleNameTextBox.ClearViaJs();
             _middleNameTextBox.SendKeys(middleName);
         }
 
         public void EditLastName(string lastName)
         {
-            _lastNameTextBox.ClearViaJs();
-            _lastNameTextBox.SendKeys("");
+            _lastNameTextBox.Click();
             _lastNameTextBox.ClearViaJs();
             _lastNameTextBox.SendKeys(lastName);
         }
 
         public void EditId(string id)
         {
-            _idTextBox.ClearViaJs();
-            _idTextBox.SendKeys(" ");
+            _idTextBox.Click();
             _idTextBox.ClearViaJs();
             _idTextBox.SendKeys(id);
         }

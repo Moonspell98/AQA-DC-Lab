@@ -10,14 +10,14 @@ namespace DiplomaProject.Common.WebElements
 
         public void ExpandDropDown()
         {
-            var dropdownIcon = FindElement(By.XPath(".//div[@class='oxd-select-text--after']"));
+            var dropdownIcon = WebElement.FindElement(By.XPath(".//div[@class='oxd-select-text--after']"));
             dropdownIcon.Click();
         }
 
         public void SelectValueByName(string name)
         {
             ExpandDropDown();
-            var dropdownOption = FindElement(By.XPath($".//div[@role='listbox']//*[contains(text(), '{name}')]"));
+            var dropdownOption = WebElement.FindElement(By.XPath($".//div[@role='listbox']//*[contains(text(), '{name}')]"));
             dropdownOption.Click();
         }
     }

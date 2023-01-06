@@ -1,4 +1,5 @@
-﻿using DiplomaProject.Common.WebElements;
+﻿using DiplomaProject.Common;
+using DiplomaProject.Common.WebElements;
 using OpenQA.Selenium;
 
 namespace DiplomaProject.PageObjects.OrangeHRM.Elements.PIM
@@ -20,12 +21,25 @@ namespace DiplomaProject.PageObjects.OrangeHRM.Elements.PIM
         public void EnterEmpoyeeId(string id)
         {
             // Doing this to avoid field autofilling after clear
-            _employeeIdTextBox.ClearViaJs();
-            _employeeIdTextBox.SendKeys(" ");
+            _employeeIdTextBox.Click();
             _employeeIdTextBox.ClearViaJs();
             _employeeIdTextBox.SendKeys(id);
         }
 
-        public void SaveEmployee() => _saveButton.Click();
+        public void ClickOnSaveButton() => _saveButton.Click();
+
+        public void CreateRandomEmployee(out string firstName, out string middleName, out string lastName, out string id)
+        {
+            firstName = RandomHelper.GetRandomString(10);
+            middleName = RandomHelper.GetRandomString(10);
+            lastName = RandomHelper.GetRandomString(10);
+            id = RandomHelper.GetRandomInt(1000, 9999).ToString();
+
+            EnterFirstName(firstName);
+            EnterMiddleName(middleName);
+            EnterLastName(lastName);
+            EnterEmpoyeeId(id);
+            ClickOnSaveButton();
+        }
     }
 }

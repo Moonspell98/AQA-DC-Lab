@@ -11,14 +11,14 @@ namespace DiplomaProject.Common.WebElements
 
         public void TypeInField(string text)
         {
-            var searchTextBox = FindElement(By.XPath(".//input"));
+            var searchTextBox = WebElement.FindElement(By.XPath(".//input"));
             searchTextBox.SendKeys(text);
         }
 
-        public void SelectItem(string text, string itemName)
+        public void SelectItem(string text)
         {
             TypeInField(text);
-            var searchOption = FindElement(By.XPath($".//div[@role='listbox']//*[contains(text(), '{itemName}')]"));
+            var searchOption = FindElement(By.XPath($".//div[@role='listbox']//*[contains(text(), '{text}')]"));
             searchOption.Click();
         }
     }

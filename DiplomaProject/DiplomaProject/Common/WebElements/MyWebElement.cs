@@ -45,11 +45,15 @@ namespace DiplomaProject.Common.WebElements
                 WebElement.Click();
             }
         }
+
         public void Clear() => WebElement.Clear();
 
         public void ClearViaJs() => WebDriverFactory.JavaScriptExecutor.ExecuteScript("arguments[0].value = '';", WebElement);
 
-        public IWebElement FindElement(By by) => WebDriverFactory.Driver.GetWebElementWhenExist(by);
+        public IWebElement FindElement(By by) 
+        {
+            return Driver.GetWebElementWhenExist(by);
+        }
 
         public bool IsDisplayed(int timeout = 3)
         {
@@ -100,5 +104,8 @@ namespace DiplomaProject.Common.WebElements
 
         public void WaitForElementIsEnabled(int timeout) => Driver
             .GetWebDriverWait(timeout).Until(drv => WebElement.Enabled);
+
+        public void WaitForElementHaveNoErrors(int timeout) => Driver
+            .GetWebDriverWait(timeout).Until(drv => !WebElement.GetAttribute("class").Contains("error"));
     }
 }

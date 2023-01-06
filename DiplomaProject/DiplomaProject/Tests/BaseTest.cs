@@ -9,13 +9,13 @@ namespace DiplomaProject.Tests
         public IWebDriver _driver;
 
         [OneTimeSetUp]
-        public void OneTimeSetUp()
+        public void InitializeDriver()
         {
             _driver = WebDriverFactory.Driver;
         }
 
         [OneTimeTearDown]
-        public void OneTimeTearDown()
+        public void StopDriver()
         {
             _driver.Quit();
         }

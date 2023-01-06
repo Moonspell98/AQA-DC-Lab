@@ -4,10 +4,17 @@ using DiplomaProject.PageObjects.OrangeHRM;
 using DiplomaProject.PageObjects.OrangeHRM.Elements.PIM;
 using NUnit.Framework;
 
-namespace DiplomaProject.Tests.Elements
+namespace DiplomaProject.Tests.Elements.PIM
 {
-    public class EmployeeTests : PimBaseTest
+    public class EmployeeTests : BaseTest
     {
+        [OneTimeSetUp]
+        public void OneTimeSetUp()
+        {
+            _driver.Navigate().GoToUrl(TestSettings.OrangeHrmLogInPageUrl);
+            GenericPages.OrangeLoginPage.LogInAsAdmin();
+        }
+
         [SetUp]
         public void Setup()
         {
@@ -24,7 +31,7 @@ namespace DiplomaProject.Tests.Elements
 
             GenericPages.EmployeeListPage.ClickOnAddEmployeeButton();
 
-            CreateRandomUser(out firstName, out middleName, out lastName, out id);  
+            GenericPages.AddEmployeePage.CreateRandomEmployee(out firstName, out middleName, out lastName, out id);
 
             Assert.AreEqual(firstName, GenericPages.PersonalDetailsPage.GetFirstName());
             Assert.AreEqual(lastName, GenericPages.PersonalDetailsPage.GetLastName());
@@ -48,7 +55,7 @@ namespace DiplomaProject.Tests.Elements
 
             GenericPages.EmployeeListPage.ClickOnAddEmployeeButton();
 
-            CreateRandomUser(out firstName, out middleName, out lastName, out id);
+            GenericPages.AddEmployeePage.CreateRandomEmployee(out firstName, out middleName, out lastName, out id);
 
             GenericPages.PersonalDetailsPage.NavigateToEmployeeListPage();
             GenericPages.EmployeeListPage.SearchById(id);
@@ -58,26 +65,35 @@ namespace DiplomaProject.Tests.Elements
             GenericPages.PersonalDetailsPage.EditMiddleName(middleName = RandomHelper.GetRandomString(10));
             GenericPages.PersonalDetailsPage.EditLastName(lastName = RandomHelper.GetRandomString(10));
             GenericPages.PersonalDetailsPage.EditId(id = RandomHelper.GetRandomInt(1000, 9999).ToString());
-            Thread.Sleep(4000);
             GenericPages.PersonalDetailsPage.SaveEmployee();
+            GenericPages.PersonalDetailsPage.NavigateToEmployeeListPage();
 
+            GenericPages.EmployeeListPage.SearchById(id);
 
-
+            Assert.AreEqual($"{firstName} {middleName}", GenericPages.EmployeeListPage.GetCellTextById(id, "First (& Middle) Name"));
+            Assert.AreEqual(lastName, GenericPages.EmployeeListPage.GetCellTextById(id, "Last Name"));
         }
 
-        public void CreateRandomUser(out string firstName, out string middleName, out string lastName, out string id)
+        [Test]
+        public void DeleteEmployeeTest()
         {
-            firstName = RandomHelper.GetRandomString(10);
-            middleName = RandomHelper.GetRandomString(10);
-            lastName = RandomHelper.GetRandomString(10);
-            id = RandomHelper.GetRandomInt(1000, 9999).ToString();
+            string firstName;
+            string middleName;
+            string lastName;
+            string id;
 
-            GenericPages.AddEmployeePage.EnterFirstName(firstName);
-            GenericPages.AddEmployeePage.EnterMiddleName(middleName);
-            GenericPages.AddEmployeePage.EnterLastName(lastName);
-            GenericPages.AddEmployeePage.EnterEmpoyeeId(id);
-            Thread.Sleep(8000);
-            GenericPages.AddEmployeePage.SaveEmployee();
+            GenericPages.EmployeeListPage.ClickOnAddEmployeeButton();
+
+            GenericPages.AddEmployeePage.CreateRandomEmployee(out firstName, out middleName, out lastName, out id);
+
+            GenericPages.PersonalDetailsPage.NavigateToEmployeeListPage();
+            GenericPages.EmployeeListPage.SearchById(id);
+            GenericPages.EmployeeListPage.DeleteEmployeeById(id);
+            GenericPages.DeleteEmployeeModal.AcceptDelete();
+            var deleteResultMessage = GenericPages.EmployeeListPage.GetSuccessToastMessage();
+            Assert.AreEqual("Successfully Deleted", deleteResultMessage);
+            var searchResultMessage = GenericPages.EmployeeListPage.GetInfoToastMessage();
+            Assert.AreEqual("No Records Found", searchResultMessage);
         }
     }
 }

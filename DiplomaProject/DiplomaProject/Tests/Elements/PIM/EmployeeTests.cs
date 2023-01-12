@@ -82,9 +82,9 @@ namespace DiplomaProject.Tests.Elements.PIM
             GenericPages.EmployeeListPage.DeleteEmployeeById(id);
             GenericPages.DeleteModal.AcceptDelete();
             var deleteResultMessage = GenericPages.EmployeeListPage.GetSuccessToastMessage();
-            Assert.AreEqual(ToastMessages.successDelete, deleteResultMessage);
+            Assert.AreEqual(ToastMessages.SuccessDelete, deleteResultMessage);
             var searchResultMessage = GenericPages.EmployeeListPage.GetInfoToastMessage();
-            Assert.AreEqual(ToastMessages.infoNoRecords, searchResultMessage);
+            Assert.AreEqual(ToastMessages.InfoNoRecords, searchResultMessage);
         }
     }
 }

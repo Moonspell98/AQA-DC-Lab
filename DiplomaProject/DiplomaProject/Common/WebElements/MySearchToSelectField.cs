@@ -1,5 +1,4 @@
-﻿using DiplomaProject.Common.Extensions;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 
 namespace DiplomaProject.Common.WebElements
 {

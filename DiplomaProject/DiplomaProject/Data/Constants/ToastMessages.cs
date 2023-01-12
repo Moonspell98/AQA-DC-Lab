@@ -2,9 +2,9 @@
 {
     public class ToastMessages
     {
-        public const string successSave = "Successfully Saved";
-        public const string successUpdate = "Successfully Updated";
-        public const string successDelete = "Successfully Deleted";
-        public const string infoNoRecords = "No Records Found";
+        public const string SuccessSave = "Successfully Saved";
+        public const string SuccessUpdate = "Successfully Updated";
+        public const string SuccessDelete = "Successfully Deleted";
+        public const string InfoNoRecords = "No Records Found";
     }
 }

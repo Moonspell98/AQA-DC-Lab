@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DiplomaProject.Common
+﻿namespace DiplomaProject.Common
 {
     public class RandomHelper
     {
@@ -20,6 +14,7 @@ namespace DiplomaProject.Common
         public static int GetRandomInt(int min, int max)
         {
             Random random = new Random();
+
             return random.Next(min, max);
         }
     }

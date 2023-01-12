@@ -36,7 +36,7 @@ namespace DiplomaProject.Tests.Elements.Admin
             GenericPages.AddEmployeePage.ClickOnNavigationItem(LeftNavigationTitles.Admin);
             AddRandomSystemUser($"{firstName} {middleName} {lastName}", out userName);
 
-            Assert.AreEqual(ToastMessages.successSave, GenericPages.AddUserPage.GetSuccessToastMessage());
+            Assert.AreEqual(ToastMessages.SuccessSave, GenericPages.AddUserPage.GetSuccessToastMessage());
         }
 
         [Test]
@@ -84,9 +84,9 @@ namespace DiplomaProject.Tests.Elements.Admin
             GenericPages.SystemUsersListPage.DeleteUserByUsername(userName);
             GenericPages.DeleteModal.AcceptDelete();
             var deleteResultMessage = GenericPages.SystemUsersListPage.GetSuccessToastMessage();
-            Assert.AreEqual(ToastMessages.successDelete, deleteResultMessage);
+            Assert.AreEqual(ToastMessages.SuccessDelete, deleteResultMessage);
             var searchResultMessage = GenericPages.SystemUsersListPage.GetInfoToastMessage();
-            Assert.AreEqual(ToastMessages.infoNoRecords, searchResultMessage);
+            Assert.AreEqual(ToastMessages.InfoNoRecords, searchResultMessage);
         }
 
         [Test]
@@ -110,7 +110,7 @@ namespace DiplomaProject.Tests.Elements.Admin
             GenericPages.SystemUsersListPage.ClickOnBulkDeleteButton();
             GenericPages.DeleteModal.AcceptDelete();
             var deleteResultMessage = GenericPages.SystemUsersListPage.GetSuccessToastMessage();
-            Assert.AreEqual(ToastMessages.successDelete, deleteResultMessage);
+            Assert.AreEqual(ToastMessages.SuccessDelete, deleteResultMessage);
         }
 
         public void AddRandomSystemUser(string employeeName, out string userName)

@@ -1,20 +1,26 @@
-﻿using DiplomaProject.Common.Drivers;
-using DiplomaProject.Common.Extensions;
-using DiplomaProject.Common.WebElements;
+﻿using DiplomaProject.Common.WebElements;
+using DiplomaProject.Data;
+using DiplomaProject.Data.Constants;
+using DiplomaProject.PageObjects.OrangeHRMPages.Elements.Admin;
 using OpenQA.Selenium;
 
 namespace DiplomaProject.PageObjects.OrangeHRM.Elements.Admin
 {
-    public class AddUserPage : OrangeHRMBasePage
+    public class AddUserPage : AdminBasePage
     {
-        private MyDropDown _userRoleDropDown => new MyDropDown(By.XPath("//label[text()='User Role']/parent::div/following-sibling::div"));
-        public MySearchToSelectField _employeeNameTextBox => new MySearchToSelectField(By.XPath("//label[text()='Employee Name']/parent::div/following-sibling::div"));
-        private MyDropDown _statusDropDown => new MyDropDown(By.XPath("//label[text()='Status']/parent::div/following-sibling::div"));
-        private MyWebElement _userNameTextBox => new MyWebElement(By.XPath("//label[text()='Username']/parent::div/following-sibling::div//input"));
-        private MyWebElement _passwordTextBox => new MyWebElement(By.XPath("//label[text()='Password']/parent::div/following-sibling::div//input"));
-        private MyWebElement _confirmPasswordTextBox => new MyWebElement(By.XPath("//label[text()='Confirm Password']/parent::div/following-sibling::div//input"));
+        private MyDropDown _userRoleDropDown => new MyDropDown(By.XPath($"//label[text()='{AddUserPageFields.UserRole}']/parent::div/following-sibling::div"));
+        public MySearchToSelectField _employeeNameTextBox => new MySearchToSelectField(By.XPath($"//label[text()='{AddUserPageFields.EmployeeName}']/parent::div/following-sibling::div"));
+        private MyDropDown _statusDropDown => new MyDropDown(By.XPath($"//label[text()='{AddUserPageFields.Status}']/parent::div/following-sibling::div"));
+        private MyWebElement _userNameTextBox => new MyWebElement(By.XPath($"//label[text()='{AddUserPageFields.UserName}']/parent::div/following-sibling::div//input"));
+        private MyWebElement _passwordTextBox => new MyWebElement(By.XPath($"//label[text()='{AddUserPageFields.Password}']/parent::div/following-sibling::div//input"));
+        private MyWebElement _confirmPasswordTextBox => new MyWebElement(By.XPath($"//label[text()='{AddUserPageFields.ConfirmPassword}']/parent::div/following-sibling::div//input"));
         private MyWebElement _saveButton => new MyWebElement(By.XPath("//button[@type='submit']"));
         private MyToast _successToast => new MyToast(By.XPath("//*[contains(@class,'toast--success')]"));
+
+        public AddUserPage()
+        {
+            pageUrl = TestSettings.AddUserPageUrl;
+        }
         
         public void SelectUserRole(string dropdownOption) => _userRoleDropDown.SelectValueByName(dropdownOption);
 
@@ -26,6 +32,8 @@ namespace DiplomaProject.PageObjects.OrangeHRM.Elements.Admin
 
         public void EnterUserName(string userName)
         {
+            _userNameTextBox.Click();
+            _userNameTextBox.ClearViaJs();
             _userNameTextBox.SendKeys(userName);
             _userNameTextBox.WaitForElementHaveNoErrors(5);
         }

@@ -1,5 +1,7 @@
 ﻿using DiplomaProject.Common;
 using DiplomaProject.Common.WebElements;
+using DiplomaProject.Data;
+using DiplomaProject.Data.Constants;
 using OpenQA.Selenium;
 
 namespace DiplomaProject.PageObjects.OrangeHRM.Elements.PIM
@@ -9,8 +11,13 @@ namespace DiplomaProject.PageObjects.OrangeHRM.Elements.PIM
         private MyWebElement _firstNameTextBox => new MyWebElement(By.XPath("//input[@name='firstName']"));
         private MyWebElement _middleNameTextBox => new MyWebElement(By.XPath("//input[@name='middleName']"));
         private MyWebElement _lastNameTextBox => new MyWebElement(By.XPath("//input[@name='lastName']"));
-        private MyWebElement _employeeIdTextBox => new MyWebElement(By.XPath("//*[text()='Employee Id']/ancestor::div/following-sibling::div/input"));
+        private MyWebElement _employeeIdTextBox => new MyWebElement(By.XPath($"//*[text()='{AddEmployeePageFields.Id}']/ancestor::div/following-sibling::div/input"));
         private MyWebElement _saveButton => new MyWebElement(By.XPath("//button[@type='submit']"));
+
+        public AddEmployeePage()
+        {
+            pageUrl = TestSettings.AddEmployeePageUrl;
+        }
 
         public void EnterFirstName(string firstName) => _firstNameTextBox.SendKeys(firstName);
 

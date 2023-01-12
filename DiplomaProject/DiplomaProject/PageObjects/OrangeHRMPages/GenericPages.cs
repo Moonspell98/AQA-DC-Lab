@@ -2,6 +2,7 @@
 using DiplomaProject.PageObjects.OrangeHRM.Elements.Admin;
 using DiplomaProject.PageObjects.OrangeHRM.Elements.PIM;
 using DiplomaProject.PageObjects.OrangeHRMModals;
+using DiplomaProject.PageObjects.OrangeHRMPages.Elements.Dashboard;
 
 namespace DiplomaProject.PageObjects.OrangeHRM
 {
@@ -13,7 +14,8 @@ namespace DiplomaProject.PageObjects.OrangeHRM
         public static SystemUsersListPage SystemUsersListPage => GetPage<SystemUsersListPage>();
         public static AddUserPage AddUserPage => GetPage<AddUserPage>();
         public static PersonalDetailsPage PersonalDetailsPage  => GetPage<PersonalDetailsPage>();
-        public static DeleteEmployeeModal DeleteEmployeeModal => GetPage<DeleteEmployeeModal>();
+        public static DashboardPage DashboardPage => GetPage<DashboardPage>();
+        public static DeleteModal DeleteModal => GetPage<DeleteModal>();
 
         private static T GetPage<T>() where T : new() => new T();
     }

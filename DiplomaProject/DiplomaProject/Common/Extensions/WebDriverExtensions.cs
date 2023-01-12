@@ -32,11 +32,5 @@ namespace DiplomaProject.Common.Extensions
 
             return driver.FindElement(by);
         }
-
-        public static bool IsPageOpened(this IWebDriver driver, string pageUrl)
-        {
-            return driver.GetWebDriverWait().Until(drv => drv.Url == pageUrl);
-            Console.WriteLine(driver.Url);
-        }
     }
 }

@@ -42,6 +42,7 @@ namespace DiplomaProject.Common.WebElements
             catch (ElementClickInterceptedException)
             {
                 ScrollIntoView();
+                WaitForElementIsDisplayed(5);
                 WebElement.Click();
             }
         }
@@ -97,7 +98,7 @@ namespace DiplomaProject.Common.WebElements
 
         public void Submit() => WebElement.Submit();
 
-        public void ScrollIntoView() => WebDriverFactory.JavaScriptExecutor.ExecuteScript("arguments[0].scrollIntoView()", WebElement);
+        public void ScrollIntoView() => WebDriverFactory.JavaScriptExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", WebElement);
 
         public void WaitForElementIsDisplayed(int timeout) => Driver
             .GetWebDriverWait(timeout).Until(drv => WebElement.Displayed);
@@ -107,5 +108,7 @@ namespace DiplomaProject.Common.WebElements
 
         public void WaitForElementHaveNoErrors(int timeout) => Driver
             .GetWebDriverWait(timeout).Until(drv => !WebElement.GetAttribute("class").Contains("error"));
+
+        public void ScrollToTop() => WebDriverFactory.JavaScriptExecutor.ExecuteScript("window.scrollTo(0,0);");
     }
 }

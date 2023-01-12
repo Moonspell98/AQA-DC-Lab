@@ -1,5 +1,6 @@
 ﻿using DiplomaProject.Common;
 using DiplomaProject.Data;
+using DiplomaProject.Data.Constants;
 using DiplomaProject.PageObjects.OrangeHRM;
 using DiplomaProject.PageObjects.OrangeHRM.Elements.PIM;
 using NUnit.Framework;
@@ -8,6 +9,11 @@ namespace DiplomaProject.Tests.Elements.PIM
 {
     public class EmployeeTests : BaseTest
     {
+        string firstName;
+        string middleName;
+        string lastName;
+        string id;
+
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
@@ -24,11 +30,6 @@ namespace DiplomaProject.Tests.Elements.PIM
         [Test]
         public void CreateEmployeeTest()
         {
-            string firstName;
-            string middleName;
-            string lastName;
-            string id;
-
             GenericPages.EmployeeListPage.ClickOnAddEmployeeButton();
 
             GenericPages.AddEmployeePage.CreateRandomEmployee(out firstName, out middleName, out lastName, out id);
@@ -41,18 +42,13 @@ namespace DiplomaProject.Tests.Elements.PIM
             GenericPages.PersonalDetailsPage.NavigateToEmployeeListPage();
             GenericPages.EmployeeListPage.SearchById(id);
 
-            Assert.AreEqual($"{firstName} {middleName}", GenericPages.EmployeeListPage.GetCellTextById(id, "First (& Middle) Name"));
-            Assert.AreEqual(lastName, GenericPages.EmployeeListPage.GetCellTextById(id, "Last Name"));
+            Assert.AreEqual($"{firstName} {middleName}", GenericPages.EmployeeListPage.GetCellTextById(id, EmployeeListPageColumns.FirstAndMiddleName));
+            Assert.AreEqual(lastName, GenericPages.EmployeeListPage.GetCellTextById(id, EmployeeListPageColumns.LastName));
         }
 
         [Test]
         public void EditEmployeeTest()
         {
-            string firstName;
-            string middleName;
-            string lastName;
-            string id;
-
             GenericPages.EmployeeListPage.ClickOnAddEmployeeButton();
 
             GenericPages.AddEmployeePage.CreateRandomEmployee(out firstName, out middleName, out lastName, out id);
@@ -70,18 +66,13 @@ namespace DiplomaProject.Tests.Elements.PIM
 
             GenericPages.EmployeeListPage.SearchById(id);
 
-            Assert.AreEqual($"{firstName} {middleName}", GenericPages.EmployeeListPage.GetCellTextById(id, "First (& Middle) Name"));
-            Assert.AreEqual(lastName, GenericPages.EmployeeListPage.GetCellTextById(id, "Last Name"));
+            Assert.AreEqual($"{firstName} {middleName}", GenericPages.EmployeeListPage.GetCellTextById(id, EmployeeListPageColumns.FirstAndMiddleName));
+            Assert.AreEqual(lastName, GenericPages.EmployeeListPage.GetCellTextById(id, EmployeeListPageColumns.LastName));
         }
 
         [Test]
         public void DeleteEmployeeTest()
         {
-            string firstName;
-            string middleName;
-            string lastName;
-            string id;
-
             GenericPages.EmployeeListPage.ClickOnAddEmployeeButton();
 
             GenericPages.AddEmployeePage.CreateRandomEmployee(out firstName, out middleName, out lastName, out id);
@@ -89,11 +80,11 @@ namespace DiplomaProject.Tests.Elements.PIM
             GenericPages.PersonalDetailsPage.NavigateToEmployeeListPage();
             GenericPages.EmployeeListPage.SearchById(id);
             GenericPages.EmployeeListPage.DeleteEmployeeById(id);
-            GenericPages.DeleteEmployeeModal.AcceptDelete();
+            GenericPages.DeleteModal.AcceptDelete();
             var deleteResultMessage = GenericPages.EmployeeListPage.GetSuccessToastMessage();
-            Assert.AreEqual("Successfully Deleted", deleteResultMessage);
+            Assert.AreEqual(ToastMessages.successDelete, deleteResultMessage);
             var searchResultMessage = GenericPages.EmployeeListPage.GetInfoToastMessage();
-            Assert.AreEqual("No Records Found", searchResultMessage);
+            Assert.AreEqual(ToastMessages.infoNoRecords, searchResultMessage);
         }
     }
 }

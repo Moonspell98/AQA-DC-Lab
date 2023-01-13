@@ -8,7 +8,8 @@ namespace DiplomaProject.PageObjects.OrangeHRM.Elements.PIM
     public class EmployeeListPage : PimBasePage
     {
         private MyWebElement _addEmployeeButton => new MyWebElement(By.XPath("//button[text()[normalize-space()='Add']]"));
-        private MyWebElement _filterByEmployeeIdTextBox => new MyWebElement(By.XPath($"//*[text()='Employee Id']/ancestor::div/following-sibling::div/input"));
+        // Break XPhath to break test
+        private MyWebElement _filterByEmployeeIdTextBox => new MyWebElement(By.XPath($"//*[text()='Employe']/ancestor::div/following-sibling::div/input"));
         private MyWebElement _searchButton => new MyWebElement(By.XPath("//button[@type='submit']"));
         private MyGrid _employeesGrid => new MyGrid(By.XPath("//*[contains(@class, 'employee-list')]"));
 

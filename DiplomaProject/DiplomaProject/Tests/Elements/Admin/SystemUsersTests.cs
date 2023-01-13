@@ -1,15 +1,20 @@
-﻿using DiplomaProject.Common;
+﻿using Allure.Net.Commons;
+using DiplomaProject.Common;
 using DiplomaProject.Data;
 using DiplomaProject.Data.Constants;
 using DiplomaProject.Data.Enums;
 using DiplomaProject.PageObjects.OrangeHRM;
+using NUnit.Allure.Attributes;
 using NUnit.Allure.Core;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
+using OpenQA.Selenium;
 
 namespace DiplomaProject.Tests.Elements.Admin
 {
     [TestFixture]
     [AllureNUnit]
+    [AllureSuite("Admin page tests")]
     public class SystemUsersTests : BaseTest
     {
         string firstName;
@@ -31,6 +36,8 @@ namespace DiplomaProject.Tests.Elements.Admin
         {          
         }
 
+        [AllureSubSuite("CRUD Tests")]
+        [AllureSeverity(SeverityLevel.critical)]
         [Test]
         public void AddSystemUser()
         {
@@ -39,9 +46,12 @@ namespace DiplomaProject.Tests.Elements.Admin
             GenericPages.AddEmployeePage.ClickOnNavigationItem(LeftNavigationTitles.Admin);
             AddRandomSystemUser($"{firstName} {middleName} {lastName}", out userName);
 
-            Assert.AreEqual(ToastMessages.SuccessSave, GenericPages.AddUserPage.GetSuccessToastMessage());
+            // Break test in assert
+            Assert.AreEqual(ToastMessages.SuccessSave + "Broken", GenericPages.AddUserPage.GetSuccessToastMessage());
         }
 
+        [AllureSubSuite("CRUD Tests")]
+        [AllureSeverity(SeverityLevel.minor)]
         [Test]
         public void SearchSystemUser() 
         {
@@ -56,6 +66,8 @@ namespace DiplomaProject.Tests.Elements.Admin
             Assert.AreEqual(UserStatuses.Enabled.ToString(), GenericPages.SystemUsersListPage.GetCellTextByUserName(userName, SystemUsersGridColumns.Status));
         }
 
+        [AllureSubSuite("CRUD Tests")]
+        [AllureSeverity(SeverityLevel.normal)]
         [Test]
         public void EditSystemUser()
         {
@@ -76,6 +88,8 @@ namespace DiplomaProject.Tests.Elements.Admin
             Assert.AreEqual(UserStatuses.Disabled.ToString(), GenericPages.SystemUsersListPage.GetCellTextByUserName(userName, SystemUsersGridColumns.Status));
         }
 
+        [AllureSubSuite("CRUD Tests")]
+        [AllureSeverity(SeverityLevel.normal)]
         [Test]
         public void DeleteSystemUser()
         {
@@ -92,6 +106,8 @@ namespace DiplomaProject.Tests.Elements.Admin
             Assert.AreEqual(ToastMessages.InfoNoRecords, searchResultMessage);
         }
 
+        [AllureSubSuite("CRUD Tests")]
+        [AllureSeverity(SeverityLevel.trivial)]
         [Test]
         public void BulkDeleteSystemUsers()
         {

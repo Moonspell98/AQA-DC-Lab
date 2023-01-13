@@ -1,11 +1,18 @@
-﻿using DiplomaProject.Common;
+﻿using Allure.Net.Commons;
+using DiplomaProject.Common;
 using DiplomaProject.Data;
 using DiplomaProject.Data.Constants;
 using DiplomaProject.PageObjects.OrangeHRM;
+using NUnit.Allure.Attributes;
+using NUnit.Allure.Core;
 using NUnit.Framework;
 
 namespace DiplomaProject.Tests.Elements.Login
 {
+    [TestFixture]
+    [AllureNUnit]
+    [AllureSuite("Login functionality")]
+
     public class LoginTests : BaseTest
     {
         [SetUp]
@@ -14,6 +21,8 @@ namespace DiplomaProject.Tests.Elements.Login
             _driver.Navigate().GoToUrl(TestSettings.OrangeHrmLogInPageUrl);
         }
 
+        [AllureSubSuite("Login with valid credentials")]
+        [AllureSeverity(SeverityLevel.blocker)]
         [Test]
         public void LoginValidCredentials()
         {
@@ -24,6 +33,8 @@ namespace DiplomaProject.Tests.Elements.Login
             Assert.AreEqual(PageTitles.DashboardPageTitle, GenericPages.DashboardPage.GetPageTitleText());
         }
 
+        [AllureSubSuite("Login with invalid credentials")]
+        [AllureSeverity(SeverityLevel.critical)]
         [Test]
         public void LoginInvalidPassword()
         {
@@ -34,6 +45,8 @@ namespace DiplomaProject.Tests.Elements.Login
             Assert.AreEqual(WarningSectionMessages.InvalidCredentialsMessage, GenericPages.OrangeLoginPage.GetWarningSectionText());
         }
 
+        [AllureSubSuite("Login with invalid credentials")]
+        [AllureSeverity(SeverityLevel.critical)]
         [Test]
         public void LoginInvalidUsername()
         {

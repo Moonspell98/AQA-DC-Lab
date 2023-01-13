@@ -1,11 +1,18 @@
-﻿using DiplomaProject.Common;
+﻿using Allure.Net.Commons;
+using DiplomaProject.Common;
 using DiplomaProject.Data;
 using DiplomaProject.Data.Constants;
 using DiplomaProject.PageObjects.OrangeHRM;
+using NUnit.Allure.Attributes;
+using NUnit.Allure.Core;
 using NUnit.Framework;
 
 namespace DiplomaProject.Tests.Elements.PIM
 {
+    [TestFixture]
+    [AllureNUnit]
+    [AllureSuite("Employees Page tests")]
+
     public class EmployeeTests : BaseTest
     {
         string firstName;
@@ -26,6 +33,8 @@ namespace DiplomaProject.Tests.Elements.PIM
             _driver.Navigate().GoToUrl(TestSettings.EmployeeListPageUrl);
         }
 
+        [AllureSubSuite("CRUD Tests")]
+        [AllureSeverity(SeverityLevel.critical)]
         [Test]
         public void CreateEmployeeTest()
         {
@@ -45,6 +54,8 @@ namespace DiplomaProject.Tests.Elements.PIM
             Assert.AreEqual(lastName, GenericPages.EmployeeListPage.GetCellTextById(id, EmployeeListPageColumns.LastName));
         }
 
+        [AllureSubSuite("CRUD Tests")]
+        [AllureSeverity(SeverityLevel.normal)]
         [Test]
         public void EditEmployeeTest()
         {
@@ -69,6 +80,8 @@ namespace DiplomaProject.Tests.Elements.PIM
             Assert.AreEqual(lastName, GenericPages.EmployeeListPage.GetCellTextById(id, EmployeeListPageColumns.LastName));
         }
 
+        [AllureSubSuite("CRUD Tests")]
+        [AllureSeverity(SeverityLevel.normal)]
         [Test]
         public void DeleteEmployeeTest()
         {

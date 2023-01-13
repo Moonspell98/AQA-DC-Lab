@@ -3,10 +3,13 @@ using DiplomaProject.Data;
 using DiplomaProject.Data.Constants;
 using DiplomaProject.Data.Enums;
 using DiplomaProject.PageObjects.OrangeHRM;
+using NUnit.Allure.Core;
 using NUnit.Framework;
 
 namespace DiplomaProject.Tests.Elements.Admin
 {
+    [TestFixture]
+    [AllureNUnit]
     public class SystemUsersTests : BaseTest
     {
         string firstName;
@@ -92,7 +95,7 @@ namespace DiplomaProject.Tests.Elements.Admin
         [Test]
         public void BulkDeleteSystemUsers()
         {
-            while(userNames.Count < 3)
+            while (userNames.Count < 3)
             {
                 _driver.Navigate().GoToUrl(TestSettings.AddEmployeePageUrl);
                 GenericPages.AddEmployeePage.CreateRandomEmployee(out firstName, out middleName, out lastName, out id);
@@ -110,6 +113,7 @@ namespace DiplomaProject.Tests.Elements.Admin
             GenericPages.SystemUsersListPage.ClickOnBulkDeleteButton();
             GenericPages.DeleteModal.AcceptDelete();
             var deleteResultMessage = GenericPages.SystemUsersListPage.GetSuccessToastMessage();
+
             Assert.AreEqual(ToastMessages.SuccessDelete, deleteResultMessage);
         }
 

@@ -2,7 +2,6 @@
 using DiplomaProject.Data;
 using DiplomaProject.Data.Constants;
 using DiplomaProject.PageObjects.OrangeHRM;
-using DiplomaProject.PageObjects.OrangeHRM.Elements.PIM;
 using NUnit.Framework;
 
 namespace DiplomaProject.Tests.Elements.PIM

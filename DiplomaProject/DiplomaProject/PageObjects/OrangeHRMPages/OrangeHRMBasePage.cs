@@ -1,7 +1,6 @@
 ﻿using DiplomaProject.Common.Drivers;
 using DiplomaProject.Common.Extensions;
 using DiplomaProject.Common.WebElements;
-using DiplomaProject.Data;
 using OpenQA.Selenium;
 
 namespace DiplomaProject.PageObjects.OrangeHRM

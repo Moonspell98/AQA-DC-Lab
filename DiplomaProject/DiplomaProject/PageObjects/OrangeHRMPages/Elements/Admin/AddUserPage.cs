@@ -16,7 +16,6 @@ namespace DiplomaProject.PageObjects.OrangeHRM.Elements.Admin
         private MyWebElement _passwordTextBox => new MyWebElement(By.XPath($"//label[text()='{AddUserPageFields.Password}']{ParentFollowingSiblingXpathPart}//input"));
         private MyWebElement _confirmPasswordTextBox => new MyWebElement(By.XPath($"//label[text()='{AddUserPageFields.ConfirmPassword}']{ParentFollowingSiblingXpathPart}//input"));
         private MyWebElement _saveButton => new MyWebElement(By.XPath("//button[@type='submit']"));
-        private MyToast _successToast => new MyToast(By.XPath("//*[contains(@class,'toast--success')]"));
 
         public AddUserPage()
         {

@@ -25,7 +25,7 @@ namespace DiplomaProject.PageObjects.OrangeHRM.Elements.PIM
 
         public void EnterMiddleName(string middleName) => _middleNameTextBox.SendKeys(middleName);
 
-        public void EnterEmpoyeeId(string id)
+        public void EnterEmpolyeeId(string id)
         {
             // Doing this to avoid field autofilling after clear
             _employeeIdTextBox.Click();
@@ -45,7 +45,7 @@ namespace DiplomaProject.PageObjects.OrangeHRM.Elements.PIM
             EnterFirstName(firstName);
             EnterMiddleName(middleName);
             EnterLastName(lastName);
-            EnterEmpoyeeId(id);
+            EnterEmpolyeeId(id);
             ClickOnSaveButton();
         }
     }

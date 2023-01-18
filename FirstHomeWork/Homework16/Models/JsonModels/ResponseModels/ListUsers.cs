@@ -6,6 +6,6 @@
         public int Per_page { get; set; }
         public int Total { get; set; }
         public int Total_pages { get; set; }
-        public SingleUser[] Data { get; set; }
+        public SingleUserData[] Data { get; set; }
     }
 }

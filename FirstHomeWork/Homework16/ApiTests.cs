@@ -126,20 +126,20 @@ namespace Homework16
         {
             var existingUsers = GetAllUsers();
             var randomUser = existingUsers[RandomHelper.GetRandomInt(0, existingUsers.Count)];
-            var singleUser = ReqresService.GetSingleUser(13);
+            var singleUser = ReqresService.GetSingleUser(randomUser.Id);
 
             Assert.AreEqual(HttpStatusCode.OK, singleUser.StatusCode);
-            Assert.AreEqual(randomUser.Email, singleUser.ResponseModel.Email);
-            Assert.AreEqual(randomUser.Id, singleUser.ResponseModel.Id);
-            Assert.AreEqual(randomUser.First_name, singleUser.ResponseModel.First_name);
-            Assert.AreEqual(randomUser.Last_name, singleUser.ResponseModel.Last_name);
+            Assert.AreEqual(randomUser.Email, singleUser.ResponseModel.Data.Email);
+            Assert.AreEqual(randomUser.Id, singleUser.ResponseModel.Data.Id);
+            Assert.AreEqual(randomUser.First_name, singleUser.ResponseModel.Data.First_name);
+            Assert.AreEqual(randomUser.Last_name, singleUser.ResponseModel.Data.Last_name);
         }
 
-        public List<SingleUser> GetAllUsers()
+        public List<SingleUserData> GetAllUsers()
         {
             var firstListOfUsers = ReqresService.GetListOfUsers(1);
             var totalPages = firstListOfUsers.ResponseModel.Total_pages;
-            List<SingleUser> existingUsers = firstListOfUsers.ResponseModel.Data.ToList();
+            List<SingleUserData> existingUsers = firstListOfUsers.ResponseModel.Data.ToList();
             // Selecting all existing users
             for (int i = 1; i <= totalPages; i++)
             {

@@ -35,6 +35,10 @@ namespace DiplomaProject.Common.WebElements
 
         public void Click()
         {
+            Type[] exceptionsToIgnore =
+            {
+                typeof(NoSuchElementException), typeof(ElementNotSelectableException), typeof(ElementNotInteractableException), typeof(StaleElementReferenceException)
+            };
             try
             {
                 WebElement.Click();
@@ -42,7 +46,7 @@ namespace DiplomaProject.Common.WebElements
             catch (ElementClickInterceptedException)
             {
                 ScrollIntoView();
-                WaitForElementIsDisplayed(5);
+                Driver.GetWebDriverWait(15, null, exceptionsToIgnore).Until(drv => WebElement.Enabled);
                 WebElement.Click();
             }
         }

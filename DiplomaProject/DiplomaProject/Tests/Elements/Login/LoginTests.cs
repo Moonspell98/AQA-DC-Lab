@@ -12,7 +12,6 @@ namespace DiplomaProject.Tests.Elements.Login
     [TestFixture]
     [AllureNUnit]
     [AllureSuite("Login functionality")]
-
     public class LoginTests : BaseTest
     {
         [SetUp]
@@ -23,6 +22,8 @@ namespace DiplomaProject.Tests.Elements.Login
 
         [AllureSubSuite("Login with valid credentials")]
         [AllureSeverity(SeverityLevel.blocker)]
+        [AllureTag("Regression")]
+        [AllureDescription("Logining in as admin")]
         [Test]
         public void LoginValidCredentials()
         {
@@ -35,6 +36,8 @@ namespace DiplomaProject.Tests.Elements.Login
 
         [AllureSubSuite("Login with invalid credentials")]
         [AllureSeverity(SeverityLevel.critical)]
+        [AllureTag("Regression")]
+        [AllureDescription("Logining with wrong password")]
         [Test]
         public void LoginInvalidPassword()
         {
@@ -47,6 +50,8 @@ namespace DiplomaProject.Tests.Elements.Login
 
         [AllureSubSuite("Login with invalid credentials")]
         [AllureSeverity(SeverityLevel.critical)]
+        [AllureTag("Regression")]
+        [AllureDescription("Logining with wrong username")]
         [Test]
         public void LoginInvalidUsername()
         {

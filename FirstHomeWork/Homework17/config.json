@@ -1,0 +1,5 @@
+{
+  "connectionStrings": {
+    "LocalAdnonetDb": "Server=(localdb)\\mssqllocaldb;Database=adonetdb;Trusted_Connection=True;"
+  }
+}

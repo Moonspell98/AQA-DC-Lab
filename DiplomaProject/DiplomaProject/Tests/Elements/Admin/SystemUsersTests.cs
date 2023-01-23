@@ -38,6 +38,8 @@ namespace DiplomaProject.Tests.Elements.Admin
 
         [AllureSubSuite("CRUD Tests")]
         [AllureSeverity(SeverityLevel.critical)]
+        [AllureTag("Regression")]
+        [AllureDescription("Creating System User")]
         [Test]
         public void AddSystemUser()
         {
@@ -47,11 +49,13 @@ namespace DiplomaProject.Tests.Elements.Admin
             AddRandomSystemUser($"{firstName} {middleName} {lastName}", out userName);
 
             // Break test in assert
-            Assert.AreEqual(ToastMessages.SuccessSave + "Broken", GenericPages.AddUserPage.GetSuccessToastMessage());
+            Assert.AreEqual(ToastMessages.SuccessSave, GenericPages.AddUserPage.GetSuccessToastMessage());
         }
 
         [AllureSubSuite("CRUD Tests")]
         [AllureSeverity(SeverityLevel.minor)]
+        [AllureTag("Regression")]
+        [AllureDescription("Searching for System User")]
         [Test]
         public void SearchSystemUser() 
         {
@@ -68,6 +72,8 @@ namespace DiplomaProject.Tests.Elements.Admin
 
         [AllureSubSuite("CRUD Tests")]
         [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Regression")]
+        [AllureDescription("Editing of System User")]
         [Test]
         public void EditSystemUser()
         {
@@ -90,6 +96,8 @@ namespace DiplomaProject.Tests.Elements.Admin
 
         [AllureSubSuite("CRUD Tests")]
         [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Regression")]
+        [AllureDescription("Deleting of System User")]
         [Test]
         public void DeleteSystemUser()
         {
@@ -108,6 +116,8 @@ namespace DiplomaProject.Tests.Elements.Admin
 
         [AllureSubSuite("CRUD Tests")]
         [AllureSeverity(SeverityLevel.trivial)]
+        [AllureTag("Regression")]
+        [AllureDescription("Bulk deleting of System User")]
         [Test]
         public void BulkDeleteSystemUsers()
         {

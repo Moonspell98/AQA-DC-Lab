@@ -12,7 +12,6 @@ namespace DiplomaProject.Tests.Elements.PIM
     [TestFixture]
     [AllureNUnit]
     [AllureSuite("Employees Page tests")]
-
     public class EmployeeTests : BaseTest
     {
         string firstName;
@@ -35,6 +34,8 @@ namespace DiplomaProject.Tests.Elements.PIM
 
         [AllureSubSuite("CRUD Tests")]
         [AllureSeverity(SeverityLevel.critical)]
+        [AllureTag("Regression")]
+        [AllureDescription("Creating employee")]
         [Test]
         public void CreateEmployeeTest()
         {
@@ -56,6 +57,8 @@ namespace DiplomaProject.Tests.Elements.PIM
 
         [AllureSubSuite("CRUD Tests")]
         [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Regression")]
+        [AllureDescription("Editing employee")]
         [Test]
         public void EditEmployeeTest()
         {
@@ -82,6 +85,8 @@ namespace DiplomaProject.Tests.Elements.PIM
 
         [AllureSubSuite("CRUD Tests")]
         [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Regression")]
+        [AllureDescription("Deleting employee")]
         [Test]
         public void DeleteEmployeeTest()
         {

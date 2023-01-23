@@ -23,7 +23,7 @@ namespace DiplomaProject.Tests.Elements.PIM
         [SetUp]
         public void Setup()
         {
-            _driver.Navigate().GoToUrl(TestSettings.EmployeeListPageUrl);
+            GenericPages.OrangeHrmBasePage.ClickOnNavigationItem(LeftNavigationTitles.Pim);
         }
 
         [Test]

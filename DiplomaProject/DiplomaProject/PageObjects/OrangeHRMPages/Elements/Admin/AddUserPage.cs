@@ -9,39 +9,39 @@ namespace DiplomaProject.PageObjects.OrangeHRM.Elements.Admin
     public class AddUserPage : AdminBasePage
     {
         private const string ParentFollowingSiblingXpathPart = "/parent::div/following-sibling::div";
-        private MyDropDown _userRoleDropDown => new MyDropDown(By.XPath($"//label[text()='{AddUserPageFields.UserRole}']{ParentFollowingSiblingXpathPart}"));
-        public MySearchToSelectField _employeeNameTextBox => new MySearchToSelectField(By.XPath($"//label[text()='{AddUserPageFields.EmployeeName}']{ParentFollowingSiblingXpathPart}"));
-        private MyDropDown _statusDropDown => new MyDropDown(By.XPath($"//label[text()='{AddUserPageFields.Status}']{ParentFollowingSiblingXpathPart}"));
-        private MyWebElement _userNameTextBox => new MyWebElement(By.XPath($"//label[text()='{AddUserPageFields.UserName}']{ParentFollowingSiblingXpathPart}//input"));
-        private MyWebElement _passwordTextBox => new MyWebElement(By.XPath($"//label[text()='{AddUserPageFields.Password}']{ParentFollowingSiblingXpathPart}//input"));
-        private MyWebElement _confirmPasswordTextBox => new MyWebElement(By.XPath($"//label[text()='{AddUserPageFields.ConfirmPassword}']{ParentFollowingSiblingXpathPart}//input"));
-        private MyWebElement _saveButton => new MyWebElement(By.XPath("//button[@type='submit']"));
+        private MyDropDown UserRoleDropDown => new MyDropDown(By.XPath($"//label[text()='{AddUserPageFields.UserRole}']{ParentFollowingSiblingXpathPart}"));
+        public MySearchToSelectField EmployeeNameTextBox => new MySearchToSelectField(By.XPath($"//label[text()='{AddUserPageFields.EmployeeName}']{ParentFollowingSiblingXpathPart}"));
+        private MyDropDown StatusDropDown => new MyDropDown(By.XPath($"//label[text()='{AddUserPageFields.Status}']{ParentFollowingSiblingXpathPart}"));
+        private MyWebElement UserNameTextBox => new MyWebElement(By.XPath($"//label[text()='{AddUserPageFields.UserName}']{ParentFollowingSiblingXpathPart}//input"));
+        private MyWebElement PasswordTextBox => new MyWebElement(By.XPath($"//label[text()='{AddUserPageFields.Password}']{ParentFollowingSiblingXpathPart}//input"));
+        private MyWebElement ConfirmPasswordTextBox => new MyWebElement(By.XPath($"//label[text()='{AddUserPageFields.ConfirmPassword}']{ParentFollowingSiblingXpathPart}//input"));
+        private MyWebElement SaveButton => new MyWebElement(By.XPath("//button[@type='submit']"));
 
         public AddUserPage()
         {
             pageUrl = TestSettings.AddUserPageUrl;
         }
         
-        public void SelectUserRole(string dropdownOption) => _userRoleDropDown.SelectValueByName(dropdownOption);
+        public void SelectUserRole(string dropdownOption) => UserRoleDropDown.SelectValueByName(dropdownOption);
 
-        public void SelectEmployeeName(string searchText) => _employeeNameTextBox.SelectItem(searchText);
+        public void SelectEmployeeName(string searchText) => EmployeeNameTextBox.SelectItem(searchText);
 
-        public void TypeInEmployeeName(string text) => _employeeNameTextBox.TypeInField(text);
+        public void TypeInEmployeeName(string text) => EmployeeNameTextBox.TypeInField(text);
 
-        public void SelectStatus(string dropdownOption) => _statusDropDown.SelectValueByName(dropdownOption);
+        public void SelectStatus(string dropdownOption) => StatusDropDown.SelectValueByName(dropdownOption);
 
         public void EnterUserName(string userName)
         {
-            _userNameTextBox.Click();
-            _userNameTextBox.ClearViaJs();
-            _userNameTextBox.SendKeys(userName);
-            _userNameTextBox.WaitForElementHaveNoErrors(5);
+            UserNameTextBox.Click();
+            UserNameTextBox.ClearViaJs();
+            UserNameTextBox.SendKeys(userName);
+            UserNameTextBox.WaitForElementHaveNoErrors(5);
         }
 
-        public void EnterPassword(string password) => _passwordTextBox.SendKeys(password);
+        public void EnterPassword(string password) => PasswordTextBox.SendKeys(password);
 
-        public void ConfirmPassword(string password) => _confirmPasswordTextBox.SendKeys(password);
+        public void ConfirmPassword(string password) => ConfirmPasswordTextBox.SendKeys(password);
 
-        public void ClickOnSaveButton() => _saveButton.Click();
+        public void ClickOnSaveButton() => SaveButton.Click();
     }
 }

@@ -16,6 +16,7 @@ namespace DiplomaProject.PageObjects.OrangeHRM
         public static PersonalDetailsPage PersonalDetailsPage  => GetPage<PersonalDetailsPage>();
         public static DashboardPage DashboardPage => GetPage<DashboardPage>();
         public static DeleteModal DeleteModal => GetPage<DeleteModal>();
+        public static OrangeHRMBasePage OrangeHrmBasePage => GetPage<OrangeHRMBasePage>();
 
         private static T GetPage<T>() where T : new() => new T();
     }

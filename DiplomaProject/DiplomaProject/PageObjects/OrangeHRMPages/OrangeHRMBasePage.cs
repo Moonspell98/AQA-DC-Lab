@@ -8,10 +8,10 @@ namespace DiplomaProject.PageObjects.OrangeHRM
     public class OrangeHRMBasePage
     {
         public string? pageUrl;
-        private MyWebElement _pageTitle => new MyWebElement(By.XPath("//*[@class='oxd-topbar-header-breadcrumb']"));
-        private MyWebElement _searchField => new MyWebElement(By.XPath("//input[@placeholder='Search']"));
-        private MyToast _successToast => new MyToast(By.XPath("//*[contains(@class,'toast--success')]"));
-        private MyToast _infoToast => new MyToast(By.XPath("//*[contains(@class,'toast--info')]"));
+        private MyWebElement PageTitle => new MyWebElement(By.XPath("//*[@class='oxd-topbar-header-breadcrumb']"));
+        private MyWebElement SearchField => new MyWebElement(By.XPath("//input[@placeholder='Search']"));
+        private MyToast SuccessToast => new MyToast(By.XPath("//*[contains(@class,'toast--success')]"));
+        private MyToast InfoToast => new MyToast(By.XPath("//*[contains(@class,'toast--info')]"));
 
         public MyWebElement NavigationItem(string navigaionItemName) => new MyWebElement(By.XPath($"//*[contains(@class, 'main-menu-item')]/*[text()='{navigaionItemName}']"));
         
@@ -22,10 +22,10 @@ namespace DiplomaProject.PageObjects.OrangeHRM
             WebDriverFactory.Driver.GetWebDriverWait().Until(drv => drv.Url == pageUrl);
         }
 
-        public string GetInfoToastMessage() => _infoToast.GetToastMessage();
+        public string GetInfoToastMessage() => InfoToast.GetToastMessage();
 
-        public string GetSuccessToastMessage() => _successToast.GetToastMessage();
+        public string GetSuccessToastMessage() => SuccessToast.GetToastMessage();
 
-        public string GetPageTitleText() => _pageTitle.Text;    
+        public string GetPageTitleText() => PageTitle.Text;    
     } 
 }

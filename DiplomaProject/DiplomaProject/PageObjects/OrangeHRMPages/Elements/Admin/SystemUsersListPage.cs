@@ -10,11 +10,11 @@ namespace DiplomaProject.PageObjects.OrangeHRM.Elements.Admin
 {
     public class SystemUsersListPage : AdminBasePage
     {
-        private MyWebElement _addUserButton => new MyWebElement(By.XPath("//button[contains(normalize-space(), 'Add')]"));
-        private MyWebElement _usernameSearchTextBox => new MyWebElement(By.XPath("//label[text()='Username']/parent::div/following-sibling::div//input"));
-        private MyWebElement _searchButton => new MyWebElement(By.XPath("//button[@type='submit']"));
-        private MyWebElement _bulkDeleteButton => new MyWebElement(By.XPath("//button[contains(@class, 'label-danger')]"));
-        private MyGrid _usersGrid => new MyGrid(By.XPath("//*[contains(@class, 'employee-list')]"));
+        private MyWebElement AddUserButton => new MyWebElement(By.XPath("//button[contains(normalize-space(), 'Add')]"));
+        private MyWebElement UsernameSearchTextBox => new MyWebElement(By.XPath("//label[text()='Username']/parent::div/following-sibling::div//input"));
+        private MyWebElement SearchButton => new MyWebElement(By.XPath("//button[@type='submit']"));
+        private MyWebElement BulkDeleteButton => new MyWebElement(By.XPath("//button[contains(@class, 'label-danger')]"));
+        private MyGrid UsersGrid => new MyGrid(By.XPath("//*[contains(@class, 'employee-list')]"));
 
         public SystemUsersListPage()
         {
@@ -23,28 +23,28 @@ namespace DiplomaProject.PageObjects.OrangeHRM.Elements.Admin
 
         public string GetCellTextByUserName(string userName, string columnName)
         {
-            var cellValue = _usersGrid.GetCellTextByColumn(SystemUsersGridColumns.UserName, userName, columnName);
+            var cellValue = UsersGrid.GetCellTextByColumn(SystemUsersGridColumns.UserName, userName, columnName);
+
             return cellValue;
         }
 
-        public void EnterUserName(string userName) => _usernameSearchTextBox.SendKeys(userName);
+        public void EnterUserName(string userName) => UsernameSearchTextBox.SendKeys(userName);
 
-        public void ClickOnAddButton() => _addUserButton.Click();
+        public void ClickOnAddButton() => AddUserButton.Click();
 
-        public void ClickOnSearchButton() => _searchButton.Click();
+        public void ClickOnSearchButton() => SearchButton.Click();
 
         public void ClickOnBulkDeleteButton()
         {
-            _bulkDeleteButton.ScrollToTop();
-            _bulkDeleteButton.Click();
+            BulkDeleteButton.ScrollToTop();
+            BulkDeleteButton.Click();
         }
 
-        public void EditUserByUsername(string userName) => _usersGrid.EditRow(SystemUsersGridColumns.UserName, userName);
+        public void EditUserByUsername(string userName) => UsersGrid.EditRow(SystemUsersGridColumns.UserName, userName);
 
-        public void DeleteUserByUsername(string userName) => _usersGrid.DeleteRow(SystemUsersGridColumns.UserName, userName);
+        public void DeleteUserByUsername(string userName) => UsersGrid.DeleteRow(SystemUsersGridColumns.UserName, userName);
 
-        public void SelectUserByUsername(string username) => _usersGrid.SelectRow(SystemUsersGridColumns.UserName, username);
-
+        public void SelectUserByUsername(string username) => UsersGrid.SelectRow(SystemUsersGridColumns.UserName, username);
 
         public void SearchByUserName(string userName)
         {

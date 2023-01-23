@@ -12,12 +12,11 @@ namespace DiplomaProject.Tests.Elements.Admin
     [AllureNUnit]
     public class SystemUsersTests : BaseTest
     {
-        string firstName;
-        string middleName;
-        string lastName;
-        string id;
-        string userName;
-        List<string> userNames = new List<string>();
+        private string firstName;
+        private string middleName;
+        private string lastName;
+        private string userName;
+        private List<string> userNames = new List<string>();
 
         [OneTimeSetUp]
         public void OneTimeSetUp()
@@ -26,16 +25,11 @@ namespace DiplomaProject.Tests.Elements.Admin
             GenericPages.OrangeLoginPage.LogInAsAdmin();
         }
 
-        [SetUp]
-        public void Setup()
-        {          
-        }
-
         [Test]
         public void AddSystemUser()
         {
             _driver.Navigate().GoToUrl(TestSettings.AddEmployeePageUrl);
-            GenericPages.AddEmployeePage.CreateRandomEmployee(out firstName, out middleName, out lastName, out id);
+            GenericPages.AddEmployeePage.CreateRandomEmployee(out firstName, out middleName, out lastName, out string id);
             GenericPages.AddEmployeePage.ClickOnNavigationItem(LeftNavigationTitles.Admin);
             AddRandomSystemUser($"{firstName} {middleName} {lastName}", out userName);
 
@@ -46,7 +40,7 @@ namespace DiplomaProject.Tests.Elements.Admin
         public void SearchSystemUser() 
         {
             _driver.Navigate().GoToUrl(TestSettings.AddEmployeePageUrl);
-            GenericPages.AddEmployeePage.CreateRandomEmployee(out firstName, out middleName, out lastName, out id);
+            GenericPages.AddEmployeePage.CreateRandomEmployee(out firstName, out middleName, out lastName, out string id);
             GenericPages.AddEmployeePage.ClickOnNavigationItem(LeftNavigationTitles.Admin);
             AddRandomSystemUser($"{firstName} {middleName} {lastName}", out userName);
             GenericPages.SystemUsersListPage.SearchByUserName(userName);
@@ -60,7 +54,7 @@ namespace DiplomaProject.Tests.Elements.Admin
         public void EditSystemUser()
         {
             _driver.Navigate().GoToUrl(TestSettings.AddEmployeePageUrl);
-            GenericPages.AddEmployeePage.CreateRandomEmployee(out firstName, out middleName, out lastName, out id);
+            GenericPages.AddEmployeePage.CreateRandomEmployee(out firstName, out middleName, out lastName, out string id);
             GenericPages.AddEmployeePage.ClickOnNavigationItem(LeftNavigationTitles.Admin);
             AddRandomSystemUser($"{firstName} {middleName} {lastName}", out userName);
             GenericPages.SystemUsersListPage.SearchByUserName(userName);
@@ -80,7 +74,7 @@ namespace DiplomaProject.Tests.Elements.Admin
         public void DeleteSystemUser()
         {
             _driver.Navigate().GoToUrl(TestSettings.AddEmployeePageUrl);
-            GenericPages.AddEmployeePage.CreateRandomEmployee(out firstName, out middleName, out lastName, out id);
+            GenericPages.AddEmployeePage.CreateRandomEmployee(out firstName, out middleName, out lastName, out string id);
             GenericPages.AddEmployeePage.ClickOnNavigationItem(LeftNavigationTitles.Admin);
             AddRandomSystemUser($"{firstName} {middleName} {lastName}", out userName);
             GenericPages.SystemUsersListPage.SearchByUserName(userName);
@@ -98,7 +92,7 @@ namespace DiplomaProject.Tests.Elements.Admin
             while (userNames.Count < 3)
             {
                 _driver.Navigate().GoToUrl(TestSettings.AddEmployeePageUrl);
-                GenericPages.AddEmployeePage.CreateRandomEmployee(out firstName, out middleName, out lastName, out id);
+                GenericPages.AddEmployeePage.CreateRandomEmployee(out firstName, out middleName, out lastName, out string id);
                 GenericPages.AddEmployeePage.ClickOnNavigationItem(LeftNavigationTitles.Admin);
                 AddRandomSystemUser($"{firstName} {middleName} {lastName}", out userName);
                 GenericPages.SystemUsersListPage.WaitForPageIsOpened();
@@ -110,6 +104,7 @@ namespace DiplomaProject.Tests.Elements.Admin
             {
                 GenericPages.SystemUsersListPage.SelectUserByUsername(user);
             }
+
             GenericPages.SystemUsersListPage.ClickOnBulkDeleteButton();
             GenericPages.DeleteModal.AcceptDelete();
             var deleteResultMessage = GenericPages.SystemUsersListPage.GetSuccessToastMessage();
@@ -122,7 +117,7 @@ namespace DiplomaProject.Tests.Elements.Admin
             var userRole = UserRoles.Admin.ToString();
             var status = UserStatuses.Enabled.ToString();
             var password = $"{RandomHelper.GetRandomString(10)}a1;";
-            userName = "1" + RandomHelper.GetRandomString(10);
+            userName = $"1{RandomHelper.GetRandomString(10)}";
 
             GenericPages.SystemUsersListPage.ClickOnAddButton();
             GenericPages.AddUserPage.SelectUserRole(userRole);

@@ -7,51 +7,51 @@ namespace DiplomaProject.PageObjects.OrangeHRM.Elements.PIM
 {
     public class PersonalDetailsPage : PimBasePage
     {
-        private MyWebElement _firstNameTextBox => new MyWebElement(By.XPath("//*[@name='firstName']"));
-        private MyWebElement _middleNameTextBox => new MyWebElement(By.XPath("//*[@name='middleName']"));
-        private MyWebElement _lastNameTextBox => new MyWebElement(By.XPath("//*[@name='lastName']"));
-        private MyWebElement _idTextBox => new MyWebElement(By.XPath($"//*[text()='{PersonalDetailPageFields.EmployeeId}']/ancestor::div/following-sibling::div/input"));
-        private MyWebElement _savePersonalDetailsButton => new MyWebElement(By.XPath("//*[contains(@class, 'employee-content')]/div[1]//button[@type='submit']"));
+        private MyWebElement FirstNameTextBox => new MyWebElement(By.XPath("//*[@name='firstName']"));
+        private MyWebElement MiddleNameTextBox => new MyWebElement(By.XPath("//*[@name='middleName']"));
+        private MyWebElement LastNameTextBox => new MyWebElement(By.XPath("//*[@name='lastName']"));
+        private MyWebElement IdTextBox => new MyWebElement(By.XPath($"//*[text()='{PersonalDetailPageFields.EmployeeId}']/ancestor::div/following-sibling::div/input"));
+        private MyWebElement SavePersonalDetailsButton => new MyWebElement(By.XPath("//*[contains(@class, 'employee-content')]/div[1]//button[@type='submit']"));
 
-        public string GetFirstName() => _firstNameTextBox.GetDomProperty("_value");
+        public string GetFirstName() => FirstNameTextBox.GetDomProperty("_value");
         
-        public string GetLastName() => _lastNameTextBox.GetDomProperty("_value");
+        public string GetLastName() => LastNameTextBox.GetDomProperty("_value");
 
-        public string GetMiddleName() => _middleNameTextBox.GetDomProperty("_value");
+        public string GetMiddleName() => MiddleNameTextBox.GetDomProperty("_value");
 
-        public string GetId() => _idTextBox.GetDomProperty("_value");
+        public string GetId() => IdTextBox.GetDomProperty("_value");
 
         public void EditFirstName(string firstName)
         {
-            _firstNameTextBox.Click();
-            _firstNameTextBox.ClearViaJs();
-            _firstNameTextBox.SendKeys(firstName);
+            FirstNameTextBox.Click();
+            FirstNameTextBox.ClearViaJs();
+            FirstNameTextBox.SendKeys(firstName);
         }
 
         public void EditMiddleName(string middleName)
         {
-            _middleNameTextBox.Click();
-            _middleNameTextBox.ClearViaJs();
-            _middleNameTextBox.SendKeys(middleName);
+            MiddleNameTextBox.Click();
+            MiddleNameTextBox.ClearViaJs();
+            MiddleNameTextBox.SendKeys(middleName);
         }
 
         public void EditLastName(string lastName)
         {
-            _lastNameTextBox.Click();
-            _lastNameTextBox.ClearViaJs();
-            _lastNameTextBox.SendKeys(lastName);
+            LastNameTextBox.Click();
+            LastNameTextBox.ClearViaJs();
+            LastNameTextBox.SendKeys(lastName);
         }
 
         public void EditId(string id)
         {
-            _idTextBox.Click();
-            _idTextBox.ClearViaJs();
-            _idTextBox.SendKeys(id);
+            IdTextBox.Click();
+            IdTextBox.ClearViaJs();
+            IdTextBox.SendKeys(id);
         }
 
         public void SaveEmployee()
         {
-            _savePersonalDetailsButton.Click();
+            SavePersonalDetailsButton.Click();
         }
     }
 }

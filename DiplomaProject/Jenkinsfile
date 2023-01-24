@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    stages {
+        stage('Restore') {
+            steps {
+                dotnetRestore project: 'DiplomaProject.sln', workDirectory: 'DiplomaProject'
+            }
+        }
+        stage('Build') {
+            steps {
+                dotnetBuild project: 'DiplomaProject.sln', workDirectory: 'DiplomaProject'
+            }
+        }
+        stage('Test') {
+            steps {
+                dotnetTest project: 'DiplomaProject.sln', workDirectory: 'DiplomaProject'
+            }
+        }
+    }
+    post {
+        always {
+            allure includeProperties: false, jdk: '', results: [[path: 'DiplomaProject/DiplomaProject/bin/Debug/net6.0/allure-results']]
+        }
+    }
+}

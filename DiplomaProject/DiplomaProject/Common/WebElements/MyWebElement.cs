@@ -33,19 +33,14 @@ namespace DiplomaProject.Common.WebElements
             By = by;
         }
 
-        public void Click()
-        {
-            try
+        public void Click() => Driver
+            .GetWebDriverWait(exceptionsTypes: new[] { typeof(StaleElementReferenceException), typeof(ElementClickInterceptedException), typeof(ElementNotInteractableException) })
+            .Until(drv =>
             {
                 WebElement.Click();
-            }
-            catch (ElementClickInterceptedException)
-            {
-                ScrollIntoView();
-                WaitForElementIsDisplayed(5);
-                WebElement.Click();
-            }
-        }
+
+                return true;
+            });
 
         public void Clear() => WebElement.Clear();
 
@@ -61,6 +56,7 @@ namespace DiplomaProject.Common.WebElements
             try
             {
                 WaitForElementIsDisplayed(timeout);
+
                 return true;
             }
             catch (Exception)
@@ -74,6 +70,7 @@ namespace DiplomaProject.Common.WebElements
             try
             {
                 WaitForElementIsEnabled(timeout);
+
                 return true;
             }
             catch (Exception)
@@ -94,7 +91,14 @@ namespace DiplomaProject.Common.WebElements
 
         public ISearchContext GetShadowRoot() => WebElement.GetShadowRoot();
 
-        public void SendKeys(string text) => WebElement.SendKeys(text);
+        public void SendKeys(string text) => Driver
+            .GetWebDriverWait(exceptionsTypes: new[] { typeof(StaleElementReferenceException), typeof(ElementNotInteractableException) })
+            .Until(drv => 
+            { 
+                WebElement.SendKeys(text);
+                
+                return true;
+            });
 
         public void Submit() => WebElement.Submit();
 

@@ -1,14 +1,18 @@
 ﻿using DiplomaProject.Data.Constants;
+using DiplomaProject.PageObjects.OrangeHRMPages;
 using OpenQA.Selenium;
 
 namespace DiplomaProject.Common.WebElements
 {
-    public class MyGrid : MyWebElement
+    public class MyGrid : BasePage
     {
-        public MyGrid(By by) : base(by)
+        private MyWebElement Grid;
+
+        public MyGrid(By by)
         {
+            Grid = new MyWebElement(by);
         }
-        public IWebElement FindRowByColumnValue(string columnName, string value) => FindElement(By.XPath($".//div[contains(@class, 'table-cell')][count(//*[@role='columnheader'][text()='{columnName}']//preceding-sibling::div) + 1]/div[text()='{value}']/ancestor::div[@role='row']"));
+        public IWebElement FindRowByColumnValue(string columnName, string value) => Grid.FindElement(By.XPath($".//div[contains(@class, 'table-cell')][count(//*[@role='columnheader'][text()='{columnName}']//preceding-sibling::div) + 1]/div[text()='{value}']/ancestor::div[@role='row']"));
 
         public string GetCellTextByColumn(string searchColumnName, string searchValue, string columnName)
         {

@@ -15,10 +15,20 @@ namespace Homework17.Tests
             AdonetHelper.AddUser(user);
 
             var createdUser = AdonetHelper.GetLastCreatedUser();
-            AdonetHelper.CreateUsersTable("TEST");
             Assert.AreEqual(user.Name, createdUser.Name);
             Assert.AreEqual(user.Age, createdUser.Age);
             Console.WriteLine(createdUser.Name);
+        }
+
+        [Test]
+        public void CreateUserTestEF()
+        {
+            var user = new Homework17EntityFramework.User() { Name = RandomHelper.GetRandomString(10), Age = RandomHelper.GetRandomInt(100)};
+            EntityFrameworkHelper.CreateUser(user);
+            
+            var createdUser = EntityFrameworkHelper.GetLastCreatedUser();
+            Assert.AreEqual(user.Name, createdUser.Name);
+            Assert.AreEqual(user.Age, createdUser.Age);
         }
     }
 }

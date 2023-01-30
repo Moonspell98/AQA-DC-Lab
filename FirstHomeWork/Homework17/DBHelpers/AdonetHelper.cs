@@ -21,6 +21,7 @@ namespace Homework17.DBHelpers
                 await sqlCommand.ExecuteNonQueryAsync();
             }
         }
+
         public static User GetUserById(string id)
         {
             using (var sqlConnection = new SqlConnection(Configurator.LocalAdnonetDbConnectionString))

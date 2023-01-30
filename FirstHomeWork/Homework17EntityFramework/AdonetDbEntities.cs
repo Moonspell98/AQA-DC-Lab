@@ -10,7 +10,6 @@ namespace Homework17EntityFramework
     {
         public AdonetDbEntities(string connectionSting) : base(connectionSting)
         {
-                
         }
     }
 }

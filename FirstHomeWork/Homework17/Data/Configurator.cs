@@ -12,6 +12,5 @@ namespace Homework17.Data
         {
             LocalAdnonetDbConnectionString = DataBaseConfiguration["connectionStrings:LocalAdnonetDb"];
         }
-
     }
 }

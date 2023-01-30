@@ -58,7 +58,7 @@ namespace DiplomaProject.Tests.Elements.Admin
             GenericPages.AddEmployeePage.ClickOnNavigationItem(LeftNavigationTitles.Admin);
             AddRandomSystemUser($"{firstName} {middleName} {lastName}", out userName);
             GenericPages.SystemUsersListPage.SearchByUserName(userName);
-            GenericPages.SystemUsersListPage.EditUserByUsername(userName);
+            GenericPages.SystemUsersListPage.UsersGrid.EditRow(SystemUsersGridColumns.UserName, userName);
             GenericPages.AddUserPage.SelectUserRole(UserRoles.ESS.ToString());
             GenericPages.AddUserPage.SelectStatus(UserStatuses.Disabled.ToString());
             GenericPages.AddUserPage.EnterUserName(userName = RandomHelper.GetRandomString(10));
@@ -78,7 +78,7 @@ namespace DiplomaProject.Tests.Elements.Admin
             GenericPages.AddEmployeePage.ClickOnNavigationItem(LeftNavigationTitles.Admin);
             AddRandomSystemUser($"{firstName} {middleName} {lastName}", out userName);
             GenericPages.SystemUsersListPage.SearchByUserName(userName);
-            GenericPages.SystemUsersListPage.DeleteUserByUsername(userName);
+            GenericPages.SystemUsersListPage.UsersGrid.DeleteRow(SystemUsersGridColumns.UserName, userName);
             GenericPages.DeleteModal.AcceptDelete();
             var deleteResultMessage = GenericPages.SystemUsersListPage.GetSuccessToastMessage();
             Assert.AreEqual(ToastMessages.SuccessDelete, deleteResultMessage);
@@ -102,7 +102,7 @@ namespace DiplomaProject.Tests.Elements.Admin
 
             foreach (var user in userNames)
             {
-                GenericPages.SystemUsersListPage.SelectUserByUsername(user);
+                GenericPages.SystemUsersListPage.UsersGrid.SelectRow(SystemUsersGridColumns.UserName, user);
             }
 
             GenericPages.SystemUsersListPage.ClickOnBulkDeleteButton();

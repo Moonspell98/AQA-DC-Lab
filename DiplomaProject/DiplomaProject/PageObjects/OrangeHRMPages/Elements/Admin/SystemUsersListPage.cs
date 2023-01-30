@@ -14,7 +14,7 @@ namespace DiplomaProject.PageObjects.OrangeHRM.Elements.Admin
         private MyWebElement UsernameSearchTextBox => new MyWebElement(By.XPath("//label[text()='Username']/parent::div/following-sibling::div//input"));
         private MyWebElement SearchButton => new MyWebElement(By.XPath("//button[@type='submit']"));
         private MyWebElement BulkDeleteButton => new MyWebElement(By.XPath("//button[contains(@class, 'label-danger')]"));
-        private MyGrid UsersGrid => new MyGrid(By.XPath("//*[contains(@class, 'employee-list')]"));
+        public MyGrid UsersGrid => new MyGrid(By.XPath("//*[contains(@class, 'employee-list')]"));
 
         public SystemUsersListPage()
         {
@@ -39,12 +39,6 @@ namespace DiplomaProject.PageObjects.OrangeHRM.Elements.Admin
             BulkDeleteButton.ScrollToTop();
             BulkDeleteButton.Click();
         }
-
-        public void EditUserByUsername(string userName) => UsersGrid.EditRow(SystemUsersGridColumns.UserName, userName);
-
-        public void DeleteUserByUsername(string userName) => UsersGrid.DeleteRow(SystemUsersGridColumns.UserName, userName);
-
-        public void SelectUserByUsername(string username) => UsersGrid.SelectRow(SystemUsersGridColumns.UserName, username);
 
         public void SearchByUserName(string userName)
         {

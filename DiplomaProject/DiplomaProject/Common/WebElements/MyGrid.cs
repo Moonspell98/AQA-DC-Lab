@@ -1,10 +1,11 @@
 ﻿using DiplomaProject.Data.Constants;
+using DiplomaProject.PageObjects.OrangeHRM;
 using DiplomaProject.PageObjects.OrangeHRMPages;
 using OpenQA.Selenium;
 
 namespace DiplomaProject.Common.WebElements
 {
-    public class MyGrid : BasePage
+    public class MyGrid : OrangeHRMBasePage
     {
         private MyWebElement Grid;
 

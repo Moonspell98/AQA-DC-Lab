@@ -41,8 +41,10 @@ namespace DiplomaProject.Tests.Elements.PIM
             GenericPages.PersonalDetailsPage.NavigateToEmployeeListPage();
             GenericPages.EmployeeListPage.SearchById(id);
 
-            Assert.AreEqual($"{firstName} {middleName}", GenericPages.EmployeeListPage.GetCellTextById(id, EmployeeListPageColumns.FirstAndMiddleName));
-            Assert.AreEqual(lastName, GenericPages.EmployeeListPage.GetCellTextById(id, EmployeeListPageColumns.LastName));
+            var actualFirstAndMidlleName = GenericPages.EmployeeListPage.EmployeesGrid.GetCellTextByColumn(EmployeeListPageColumns.Id, id, EmployeeListPageColumns.FirstAndMiddleName);
+            var actualLastName = GenericPages.EmployeeListPage.EmployeesGrid.GetCellTextByColumn(EmployeeListPageColumns.Id, id, EmployeeListPageColumns.LastName);
+            Assert.AreEqual($"{firstName} {middleName}", actualFirstAndMidlleName);
+            Assert.AreEqual(lastName, actualLastName);
         }
 
         [Test]
@@ -54,7 +56,7 @@ namespace DiplomaProject.Tests.Elements.PIM
 
             GenericPages.PersonalDetailsPage.NavigateToEmployeeListPage();
             GenericPages.EmployeeListPage.SearchById(id);
-            GenericPages.EmployeeListPage.EditEmployeeById(id);
+            GenericPages.EmployeeListPage.EmployeesGrid.EditRow(EmployeeListPageColumns.Id, id);
 
             GenericPages.PersonalDetailsPage.EditFirstName(firstName = RandomHelper.GetRandomString(10));
             GenericPages.PersonalDetailsPage.EditMiddleName(middleName = RandomHelper.GetRandomString(10));
@@ -65,8 +67,10 @@ namespace DiplomaProject.Tests.Elements.PIM
 
             GenericPages.EmployeeListPage.SearchById(id);
 
-            Assert.AreEqual($"{firstName} {middleName}", GenericPages.EmployeeListPage.GetCellTextById(id, EmployeeListPageColumns.FirstAndMiddleName));
-            Assert.AreEqual(lastName, GenericPages.EmployeeListPage.GetCellTextById(id, EmployeeListPageColumns.LastName));
+            var actualFirstAndMidlleName = GenericPages.EmployeeListPage.EmployeesGrid.GetCellTextByColumn(EmployeeListPageColumns.Id, id, EmployeeListPageColumns.FirstAndMiddleName);
+            var actualLastName = GenericPages.EmployeeListPage.EmployeesGrid.GetCellTextByColumn(EmployeeListPageColumns.Id, id, EmployeeListPageColumns.LastName);
+            Assert.AreEqual($"{firstName} {middleName}", actualFirstAndMidlleName);
+            Assert.AreEqual(lastName, actualLastName);
         }
 
         [Test]
@@ -78,7 +82,7 @@ namespace DiplomaProject.Tests.Elements.PIM
 
             GenericPages.PersonalDetailsPage.NavigateToEmployeeListPage();
             GenericPages.EmployeeListPage.SearchById(id);
-            GenericPages.EmployeeListPage.DeleteEmployeeById(id);
+            GenericPages.EmployeeListPage.EmployeesGrid.DeleteRow(EmployeeListPageColumns.Id, id);
             GenericPages.DeleteModal.AcceptDelete();
             var deleteResultMessage = GenericPages.EmployeeListPage.GetSuccessToastMessage();
             Assert.AreEqual(ToastMessages.SuccessDelete, deleteResultMessage);

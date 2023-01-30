@@ -1,5 +1,4 @@
 ﻿using DiplomaProject.Common.WebElements;
-using DiplomaProject.Data;
 using DiplomaProject.Data.Constants;
 using OpenQA.Selenium;
 

@@ -1,6 +1,5 @@
 ﻿using DiplomaProject.Data.Constants;
 using DiplomaProject.PageObjects.OrangeHRM;
-using DiplomaProject.PageObjects.OrangeHRMPages;
 using OpenQA.Selenium;
 
 namespace DiplomaProject.Common.WebElements
